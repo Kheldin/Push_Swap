@@ -16,7 +16,7 @@ SRCFILES	:= ft_fds.c ft_alloc.c ft_is.c ft_itoa.c ft_split.c ft_str.c ft_str2.c 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/libft.h
 
-DEPFLAGS	:= -MMD -MP -MF $(DEPDIR)/$*.d
+DEPFLAGS	:= -MD -MP -MF $(DEPDIR)/$*.d
 
 all: $(NAME)
 
