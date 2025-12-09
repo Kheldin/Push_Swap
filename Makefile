@@ -11,7 +11,7 @@ BUILDDIR	:= build
 SRCFILES	:= disorder.c main.c
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
-HEADERS		:= $(wildcard $(INCDIR)/*.h)
+HEADERS		:= $(INCDIR)/push_swap.h
 
 DEPFLAGS	:= -MMD -MP -MF $(DEPDIR)/$*.d
 
