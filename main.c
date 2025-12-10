@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2025/12/10 13:14:41 by kacherch         ###   ########.fr       */
+/*   Updated: 2025/12/10 16:48:02 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,28 @@ int	*init_stack(char *argv[])
 	}
 	return (numbers);
 }
+
+int	*input_parser(int argc, char *argv[])
+{
+	int	*numbers;
+
+	if (argc == 2)
+	{
+
+	}
+	return(init_stack(argv));
+}
+
 int	main (int argc, char *argv[])
 {
 	int		i;
 	int		*numbers;
 	float	disorder;
 
-	(void)argc;	
-	(void)argv;	
-	numbers = init_stack(argv);
+	// Need to check what we should do in both failure cases
+	if (argc == 1)
+		return (EXIT_FAILURE);
+	numbers = input_parser(argc, argv);
 	if (!numbers)
 		return (EXIT_FAILURE);
 	i = 1;

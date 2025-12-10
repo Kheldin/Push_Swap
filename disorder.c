@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:41 by kacherch          #+#    #+#             */
-/*   Updated: 2025/12/10 13:11:16 by kacherch         ###   ########.fr       */
+/*   Updated: 2025/12/10 16:31:34 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ float get_disorder(int *numbers)
 	i = 0;
 	while (numbers[i])
 	{
-		ft_printf("%d\n", numbers[i]);
 		j = i + 1;
 		while (numbers[j])
 		{
