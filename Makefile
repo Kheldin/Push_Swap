@@ -1,4 +1,4 @@
-NAME		:= push_swap.out
+NAME		:= push_swap
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
 AR			:= ar rcs
@@ -23,7 +23,7 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-$(LIBFT):
+$(LIBFT):force
 	$(MAKE) -C $(LIBFTDIR)
 
 $(BUILDDIR)/%.o: %.c $(HEADERS)
@@ -44,8 +44,4 @@ fclean: clean
 
 re: fclean all
 
-debug: re
-	$(CC) main.c $(NAME) -g3 -o debug.out
-	./debug.out
-
-.PHONY: all clean fclean re debug
+.PHONY: all clean fclean re force
