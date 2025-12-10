@@ -1,4 +1,4 @@
-NAME		:= push_swap
+NAME		:= push_swap.out
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
 AR			:= ar rcs
@@ -13,15 +13,21 @@ SRCFILES	:= disorder.c main.c
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h
 
-DEPFLAGS	:= -MMD -MP -MF $(DEPDIR)/$*.d
+DEPFLAGS	:= -MD -MP -MF $(DEPDIR)/$*.d
+
+LIBFTDIR	:= libft/
+LIBFT		:= $(LIBFTDIR)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+$(NAME): $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+$(LIBFT):
+	$(MAKE) -C $(LIBFTDIR)
 
 $(BUILDDIR)/%.o: %.c $(HEADERS)
-	@mkdir -p $(BUILDDIR) $(DEPDIR)
+	mkdir -p $(BUILDDIR) $(DEPDIR)
 	$(CC) $(CFLAGS) $(DEPFLAGS) -I$(INCDIR) -c $< -o $@
 
 -include $(OBJS:.o=.d)
@@ -29,10 +35,12 @@ $(BUILDDIR)/%.o: %.c $(HEADERS)
 clean:
 	rm -rf $(DEPDIR)
 	rm -rf $(BUILDDIR)
+	$(MAKE) -C $(LIBFTDIR) clean
 
 fclean: clean
 	rm -f $(NAME)
 	rm -f *out
+	$(MAKE) -C $(LIBFTDIR) fclean
 
 re: fclean all
 

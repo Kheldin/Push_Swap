@@ -1,39 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disorder.c                                         :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 16:58:41 by kacherch          #+#    #+#             */
-/*   Updated: 2025/12/10 13:11:16 by kacherch         ###   ########.fr       */
+/*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
+/*   Updated: 2025/12/10 13:15:18 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+# include "../libft/includes/libft.h"
 
-float get_disorder(int *numbers)
-{
-	float	mistakes;
-	float	total_pair;
-	int		i;
-	int		j;
+float get_disorder(int *numbers);
 
-	mistakes = 0;
-	total_pair = 0;
-	i = 0;
-	while (numbers[i])
-	{
-		ft_printf("%d\n", numbers[i]);
-		j = i + 1;
-		while (numbers[j])
-		{
-			total_pair++;
-			if (numbers[i] > numbers[i + 1])
-				mistakes++;
-			j++;
-		}
-		i++;
-	}
-	return (mistakes / total_pair);
-}
+#endif

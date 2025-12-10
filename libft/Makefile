@@ -24,7 +24,7 @@ $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 $(BUILDDIR)/%.o: %.c $(HEADERS)
-	@mkdir -p $(BUILDDIR) $(DEPDIR)
+	mkdir -p $(BUILDDIR) $(DEPDIR)
 	$(CC) $(CFLAGS) $(DEPFLAGS) -I$(INCDIR) -c $< -o $@
 
 -include $(OBJS:.o=.d)
@@ -39,8 +39,4 @@ fclean: clean
 
 re: fclean all
 
-debug: re
-	$(CC) main.c $(NAME) -g3 -o debug.out
-	./debug.out
-
-.PHONY: all clean fclean re debug
+.PHONY: all clean fclean re
