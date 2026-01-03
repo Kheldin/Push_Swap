@@ -18,6 +18,8 @@ DEPFLAGS	:= -MD -MP -MF $(DEPDIR)/$*.d
 LIBFTDIR	:= libft/
 LIBFT		:= $(LIBFTDIR)/libft.a
 
+ARG = 
+
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
@@ -30,7 +32,7 @@ $(BUILDDIR)/%.o: %.c $(HEADERS)
 	mkdir -p $(BUILDDIR) $(DEPDIR)
 	$(CC) $(CFLAGS) $(DEPFLAGS) -I$(INCDIR) -c $< -o $@
 
--include $(OBJS:.o=.d)
+-include $(addprefix $(DEPDIR)/,$(SRCFILES:.c=.d))
 
 clean:
 	rm -rf $(DEPDIR)
@@ -44,4 +46,12 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re force
+debug: all
+	$(CC) $(CFLAGS) -g3 $(OBJS) $(LIBFT) -o $(NAME)
+	./$(NAME) $(ARG)
+
+gdb_debug: re $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) -g3 $(OBJS) $(LIBFT) -o $(NAME)
+	gdb --args ./$(NAME) $(ARG)
+
+.PHONY: all clean fclean re force debug gdb_debug

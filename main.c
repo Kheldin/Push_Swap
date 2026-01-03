@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/03 18:53:54 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/03 20:51:03 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	*ft_free_split(char **buffer)
 	return (NULL);
 }
 
-char	**one_arg(char **argv)
+char	**one_arg_parser(char **argv)
 {
 	int		i;
 	int		j;
@@ -61,28 +61,44 @@ char	**one_arg(char **argv)
 	return (buffer);
 }
 
+char	**multiple_arg_parser()
+{
+	char	*line;
+
+	line = get_next_line(2);
+	ft_printf("%s\n", line);
+	line = get_next_line(0);
+	ft_printf("%s\n", line);
+	return (NULL);
+}
+
 t_list	*create_list(char **buffer)
 {
 	int	i;
-	int	number;
-	t_list	*head;
+	int	*number;
+	t_list	*stack_a;
 
 	i = 0;
-	head = NULL;
+	stack_a = NULL;
 	while (buffer[i])
 	{
-		number = ft_atoi(buffer[i]);
-		ft_printf("number = %d\n", number);
-		if (!head)
-			head = ft_lstnew(&number);
+		number = ft_calloc(1, sizeof(int));
+		if (!number)
+		{
+			ft_free_split(buffer);
+			return (NULL);
+		}
+		*number = ft_atoi(buffer[i]);
+		if (!stack_a)
+			stack_a = ft_lstnew(number);
 		else
-			ft_lstadd_back(&head, ft_lstnew(&number));
-		i++;	
+			ft_lstadd_back(&stack_a, ft_lstnew(number));
+		i++;
 	}
-	return head;
+	return stack_a;
 }
 
-void	*input_parser(int argc, char *argv[])
+t_list	*input_parser(int argc, char *argv[])
 {
 	t_list *stack_a;
 	int		i;
@@ -92,20 +108,26 @@ void	*input_parser(int argc, char *argv[])
 	stack_a = NULL;
 	buffer = NULL; // a delete
 	if (argc == 2)
-		buffer = one_arg(argv);
+		buffer = one_arg_parser(argv);
+	else
+		buffer = multiple_arg_parser();
 	if (!buffer)
-		return (NULL);
+		return (stack_a);
 	stack_a = create_list(buffer);
-	return ((void *)stack_a);
+	return (stack_a);
 }
 
 int	main (int argc, char *argv[])
 {
 	int	i;
-	t_list *stack_a;
+	t_list **h_stack_a;
+	t_list	*stack_a;
 
 	i = 0;
 	stack_a = input_parser(argc, argv);
+	if (!stack_a)
+		return (EXIT_FAILURE);
+	h_stack_a = &stack_a;
 	if (!stack_a)
 	{
 		write(2, "Error\n", 7);
@@ -114,7 +136,7 @@ int	main (int argc, char *argv[])
 	while (stack_a)
 	{
 		printf("%d\n", *(int *)stack_a->content);
-		stack_a =stack_a->next;
+		stack_a = stack_a->next;
 	}
 
 	return (EXIT_SUCCESS);
