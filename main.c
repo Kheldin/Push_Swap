@@ -6,12 +6,23 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/03 20:51:03 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/03 20:53:43 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include <stdio.h>
+#include "libft/includes/libft.h"
+
+/*
+	if argc == 2: 
+		- we have a single string containing numbers | Use split
+	if args > 2:
+		- each number is a single string  | Just create a node and push to the stack
+	
+	if an error happen, free stacks and EXIT_FAILURE
+*/
+void	*ft_free_split(char **buffer)
 #include "libft/includes/libft.h"
 
 /*
@@ -46,6 +57,16 @@ char	**one_arg_parser(char **argv)
 	buffer = ft_split(argv[1], ' ');
 	while (buffer[i])
 	{
+		j = 0;
+		while (buffer[i][j])
+		{
+			if (!ft_isdigit(buffer[i][j]))
+			{
+				ft_free_split(buffer);
+				return (NULL);
+			}
+			j++;
+		}
 		j = 0;
 		while (buffer[i][j])
 		{
