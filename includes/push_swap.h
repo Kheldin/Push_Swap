@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/04 15:17:51 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/04 17:49:16 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	swap_ss(t_list *first_a, t_list *first_b);
 void rotate(t_list **node, char stack);
 void rotate_rr(t_list **node_a, t_list **node_b);
 void reverse_rotate(t_list **node, char stack);
+void reverse_rotate_rr(t_list **node_a, t_list **node_b);
 
 void push(t_list **first_a, t_list **first_b, char stack);
 
