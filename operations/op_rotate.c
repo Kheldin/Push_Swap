@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 21:35:14 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/04 15:08:31 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/04 17:44:33 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,18 @@ void reverse_rotate(t_list **node, char stack)
 {
     t_list *last;
     t_list *first;
-    
+    t_list  *penultimate;
+
     if ((*node) == NULL || (*node)->next == NULL)
         return ;
+    penultimate = (*node);
     first = (*node);
-    (*node) = first->next;
     last = ft_lstlast(first);
+    while (penultimate->next->next)
+        penultimate = penultimate->next;
+    penultimate->next = NULL;
     last->next = first;
-    first->next = NULL;
+    (*node) = last;
     if (stack == 'a')
         write(1, "rra\n", 4);
     if (stack == 'b')
