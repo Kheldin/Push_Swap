@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 18:49:53 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/03 21:36:12 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/04 14:37:53 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/includes/libft.h"
+#include "../libft/includes/libft.h"
 
 void push(t_list **first_a, t_list **first_b, char stack)
 {

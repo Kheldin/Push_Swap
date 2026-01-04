@@ -6,11 +6,11 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 21:35:14 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/04 14:34:01 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/04 14:37:57 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/includes/libft.h"
+#include "../libft/includes/libft.h"
 
 void rotate(t_list **node, char stack)
 {

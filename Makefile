@@ -3,12 +3,13 @@ CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g3
 AR			:= ar rcs
 
-SRCDIR		:= . parser
+SRCDIR		:= . parser operations
 DEPDIR		:= .deps
 INCDIR		:= includes
 BUILDDIR	:= build
 
-SRCFILES	:= disorder.c main.c parser/parser.c parser/ft_free_buffer.c
+SRCFILES	:= disorder.c main.c parser/parser.c parser/ft_free_buffer.c \
+			   operations/op_push.c operations/op_swap.c operations/op_rotate.c 
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h
@@ -38,7 +39,7 @@ vpath %.c $(SRCDIR) #Search *.c in all dir in SRCDIR
 clean:
 	rm -rf $(DEPDIR)
 	rm -rf $(BUILDDIR)
-	rm *.txt
+	rm -f *.txt
 	$(MAKE) -C $(LIBFTDIR) clean
 
 fclean: clean
