@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/03 20:55:53 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/04 11:49:42 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "libft/includes/libft.h"
 
-void	*ft_free_split(char **buffer)
+void	ft_free_buffer(char **buffer)
 {
 	int	i;
 
@@ -25,53 +25,60 @@ void	*ft_free_split(char **buffer)
 		i++;
 	}
 	free(buffer);
-	return (NULL);
+}
+
+int	valid_arg(char *argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (!ft_isdigit(argv[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 char	**one_arg_parser(char **argv)
 {
 	int		i;
-	int		j;
 	char	**buffer;
 
 	i = 0;
 	buffer = ft_split(argv[1], ' ');
+	if (!buffer)
+		return NULL;
 	while (buffer[i])
 	{
-		j = 0;
-		while (buffer[i][j])
-		{
-			if (!ft_isdigit(buffer[i][j]))
-			{
-				ft_free_split(buffer);
-				return (NULL);
-			}
-			j++;
-		}
-		j = 0;
-		while (buffer[i][j])
-		{
-			if (!ft_isdigit(buffer[i][j]))
-			{
-				ft_free_split(buffer);
-				return (NULL);
-			}
-			j++;
-		}
+		if (!valid_arg(buffer[i]))
+			return (ft_free_buffer(buffer), NULL);
 		i++;
 	}
 	return (buffer);
 }
 
-char	**multiple_arg_parser()
+char	**multiple_arg_parser(int argc, char **argv)
 {
-	char	*line;
+	char	**buffer;
+	int		i;
 
-	line = get_next_line(2);
-	ft_printf("%s\n", line);
-	line = get_next_line(0);
-	ft_printf("%s\n", line);
-	return (NULL);
+	i = 1;
+	buffer = ft_calloc(argc + 1, sizeof(char *));
+	if (!buffer)
+		return (NULL);
+	while (argv[i])
+	{
+		if (!valid_arg(argv[i]))
+			return (ft_free_buffer(buffer), NULL);
+		buffer[i-1] = ft_strdup(argv[i]);
+		if (!buffer[i-1])
+			return (ft_free_buffer(buffer), NULL);
+		i++;
+	}
+	buffer[i] = NULL;
+	return (buffer);
 }
 
 t_list	*create_list(char **buffer)
@@ -86,10 +93,7 @@ t_list	*create_list(char **buffer)
 	{
 		number = ft_calloc(1, sizeof(int));
 		if (!number)
-		{
-			ft_free_split(buffer);
-			return (NULL);
-		}
+			return (ft_free_buffer(buffer), NULL); // need to free stack to
 		*number = ft_atoi(buffer[i]);
 		if (!stack_a)
 			stack_a = ft_lstnew(number);
@@ -108,13 +112,15 @@ t_list	*input_parser(int argc, char *argv[])
 
 	i = 0;
 	stack_a = NULL;
-	buffer = NULL; // a delete
+	buffer = NULL;
 	if (argc == 2)
 		buffer = one_arg_parser(argv);
 	else
-		buffer = multiple_arg_parser();
+	{
+		buffer = multiple_arg_parser(argc, argv);
+	}
 	if (!buffer)
-		return (stack_a);
+		return (NULL);
 	stack_a = create_list(buffer);
 	return (stack_a);
 }
@@ -125,7 +131,12 @@ int	main (int argc, char *argv[])
 	t_list **h_stack_a;
 	t_list	*stack_a;
 
-	i = 0;
+	i = 1;
+	while (argv[i])
+	{
+		ft_printf("Arg nb %d = %s\n", i, argv[i]);
+		i++;
+	}
 	stack_a = input_parser(argc, argv);
 	if (!stack_a)
 		return (EXIT_FAILURE);
@@ -137,7 +148,7 @@ int	main (int argc, char *argv[])
 	}
 	while (stack_a)
 	{
-		printf("%d\n", *(int *)stack_a->content);
+		printf("Node = %d\n", *(int *)stack_a->content);
 		stack_a = stack_a->next;
 	}
 

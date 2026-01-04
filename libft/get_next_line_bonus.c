@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 17:52:56 by kacherch          #+#    #+#             */
-/*   Updated: 2025/12/02 20:47:30 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/04 10:10:47 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char	*get_next_line(int fd)
 			return (extract_line(&tmpbuf[fd]));
 		ret = read(fd, buf, BUFFER_SIZE);
 		if (ret <= 0)
-			return (handle_read_end(&tmpbuf[fd], ret));
+		return (handle_read_end(&tmpbuf[fd], ret));
 		buf[ret] = '\0';
 		tmp = ft_strjoin_gnl(tmpbuf[fd], buf);
 		free(tmpbuf[fd]);
