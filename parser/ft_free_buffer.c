@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_free_buffer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/04 12:36:03 by kacherch         ###   ########.fr       */
+/*   Created: 2026/01/04 12:36:35 by kacherch          #+#    #+#             */
+/*   Updated: 2026/01/04 12:36:57 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libft/includes/libft.h"
+#include <stdlib.h>
 
-float get_disorder(int *numbers);
-void	ft_free_buffer(char **buffer);
-int	valid_arg(char *argv);
-char	**one_arg_parser(char **argv);
-char	**multiple_arg_parser(int argc, char **argv);
-t_list	*create_list(char **buffer);
-t_list	*input_parser(int argc, char *argv[]);
+void	ft_free_buffer(char **buffer)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while(buffer[i])
+	{
+		free(buffer[i]);
+		i++;
+	}
+	free(buffer);
+}

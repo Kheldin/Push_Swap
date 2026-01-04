@@ -3,12 +3,12 @@ CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g3
 AR			:= ar rcs
 
-SRCDIR		:= .
-DEPDIR		:= $(SRCDIR)/.deps
+SRCDIR		:= . parser
+DEPDIR		:= .deps
 INCDIR		:= includes
 BUILDDIR	:= build
 
-SRCFILES	:= disorder.c main.c
+SRCFILES	:= disorder.c main.c parser/parser.c parser/ft_free_buffer.c
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h
@@ -29,9 +29,10 @@ $(LIBFT):force
 	$(MAKE) -C $(LIBFTDIR)
 
 $(BUILDDIR)/%.o: %.c $(HEADERS)
-	mkdir -p $(BUILDDIR) $(DEPDIR)
+	@mkdir -p $(dir $@) $(DEPDIR)/$(dir $<)
 	$(CC) $(CFLAGS) $(DEPFLAGS) -I$(INCDIR) -c $< -o $@
 
+vpath %.c $(SRCDIR) #Search *.c in all dir in SRCDIR
 -include $(addprefix $(DEPDIR)/,$(SRCFILES:.c=.d))
 
 clean:
@@ -41,7 +42,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f *out
 	$(MAKE) -C $(LIBFTDIR) fclean
 
 re: fclean all
