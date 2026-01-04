@@ -1,6 +1,6 @@
 NAME		:= push_swap
 CC			:= cc
-CFLAGS		:= -Wall -Wextra -Werror
+CFLAGS		:= -Wall -Wextra -Werror -g3
 AR			:= ar rcs
 
 SRCDIR		:= .
@@ -48,7 +48,7 @@ re: fclean all
 
 debug: all
 	$(CC) $(CFLAGS) -g3 $(OBJS) $(LIBFT) -o $(NAME)
-	./$(NAME) $(ARG)
+	valgrind --leak-check=full ./$(NAME) $(ARG)
 
 gdb_debug: re $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) -g3 $(OBJS) $(LIBFT) -o $(NAME)

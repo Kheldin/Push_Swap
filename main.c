@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/04 11:49:42 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/04 12:26:55 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,27 +116,19 @@ t_list	*input_parser(int argc, char *argv[])
 	if (argc == 2)
 		buffer = one_arg_parser(argv);
 	else
-	{
 		buffer = multiple_arg_parser(argc, argv);
-	}
 	if (!buffer)
 		return (NULL);
 	stack_a = create_list(buffer);
+	ft_free_buffer(buffer);
 	return (stack_a);
 }
 
 int	main (int argc, char *argv[])
 {
-	int	i;
 	t_list **h_stack_a;
 	t_list	*stack_a;
-
-	i = 1;
-	while (argv[i])
-	{
-		ft_printf("Arg nb %d = %s\n", i, argv[i]);
-		i++;
-	}
+	
 	stack_a = input_parser(argc, argv);
 	if (!stack_a)
 		return (EXIT_FAILURE);
@@ -146,11 +138,11 @@ int	main (int argc, char *argv[])
 		write(2, "Error\n", 7);
 		return (EXIT_FAILURE);
 	}
-	while (stack_a)
-	{
-		printf("Node = %d\n", *(int *)stack_a->content);
-		stack_a = stack_a->next;
-	}
-
+	// while (stack_a)
+	// {
+	// 	printf("Node = %d\n", *(int *)stack_a->content);
+	// 	stack_a = stack_a->next;
+	// }
+	ft_lstclear(&stack_a, free);
 	return (EXIT_SUCCESS);
 }
