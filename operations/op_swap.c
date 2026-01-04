@@ -6,17 +6,12 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 15:55:15 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/04 14:38:00 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/04 15:14:05 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include <unistd.h>
-
-void del(void *content)
-{
-	free(content);
-}
 
 void	swap(t_list *first, t_list *second, char stack)
 {
