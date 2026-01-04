@@ -38,6 +38,7 @@ vpath %.c $(SRCDIR) #Search *.c in all dir in SRCDIR
 clean:
 	rm -rf $(DEPDIR)
 	rm -rf $(BUILDDIR)
+	rm *.txt
 	$(MAKE) -C $(LIBFTDIR) clean
 
 fclean: clean

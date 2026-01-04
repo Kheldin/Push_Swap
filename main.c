@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/04 12:49:29 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/04 13:43:18 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ int	main (int argc, char *argv[])
 	{
 		write(2, "Error\n", 7);
 		return (EXIT_FAILURE);
-	}
-	while (stack_a)
-	{
-		ft_printf("Node = %d\n", *(int *)stack_a->content);
-		stack_a = stack_a->next;
 	}
 	ft_lstclear(&stack_a, free);
 	return (EXIT_SUCCESS);
