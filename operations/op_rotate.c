@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 21:35:14 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/03 22:25:30 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/04 14:34:01 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void rotate(t_list **node, char stack)
     first = (*node);
     (*node) = first->next;
     last = ft_lstlast(first);
-    __builtin_printf("last->content = %d\n", *(int *)last->content);
     last->next = first;
     first->next = NULL;
     if (stack == 'a')
