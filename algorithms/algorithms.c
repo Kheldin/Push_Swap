@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/05 23:58:25 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/06 00:00:29 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,22 @@
 //     }
 // }
 
-int position_temp(t_list *temp, t_list **stack_a)
-{
-    t_list *current;
-    int position;
+// int position_temp(t_list *temp, t_list **stack_a)
+// {
+//     t_list *current;
+//     int position;
 
-    position = 0;
-    current = *stack_a;
-    while (current)
-    {
-        if (current == temp)
-            return (position);
-        position++;
-        current = current->next;
-    }
-    return (-1);
-}
+//     position = 0;
+//     current = *stack_a;
+//     while (current)
+//     {
+//         if (current == temp)
+//             return (position);
+//         position++;
+//         current = current->next;
+//     }
+//     return (-1);
+// }
 
 void	selection_sort(t_list **stack_a, t_list **stack_b)
 {
