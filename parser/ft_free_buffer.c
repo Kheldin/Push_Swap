@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_buffer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:36:35 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/04 12:36:57 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/05 19:05:35 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,4 @@ void	ft_free_buffer(char **buffer)
 	}
 	free(buffer);
 }
+	

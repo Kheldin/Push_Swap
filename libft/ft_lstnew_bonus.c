@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:03:58 by kacherch          #+#    #+#             */
-/*   Updated: 2025/11/09 15:20:03 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/05 21:46:44 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "includes/libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*node;
 

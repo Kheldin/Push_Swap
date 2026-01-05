@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/04 17:34:27 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/05 23:02:41 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,24 @@
 
 void	ft_print_stacks(t_list *stack_a, t_list *stack_b)
 {
-	ft_printf("Stack A: \n");
-	while (stack_a)
+	while (stack_a || stack_b)
 	{
-		ft_printf("%d\n", *(int *)stack_a->content);
-		stack_a = stack_a->next;
+		if (stack_a)
+		{
+			ft_printf("%d ", stack_a->content);
+			stack_a = stack_a->next;
+		}
+		else
+			ft_printf("  ");
+		if (stack_b)
+		{
+			ft_printf("%d\n", stack_b->content);
+			stack_b = stack_b->next;
+		}
+		else
+			ft_printf("\n");
 	}
-	ft_printf("Stack B: \n");
-	while (stack_b)
-	{
-		ft_printf("%d\n", *(int *)stack_b->content);
-		stack_b = stack_b->next;
-	}
+	ft_printf("_ _\na b\n\n");
 }
 
 int	main (int argc, char *argv[])
@@ -45,9 +51,14 @@ int	main (int argc, char *argv[])
 		write(2, "Error\n", 7);
 		return (EXIT_FAILURE);
 	}
-	ft_print_stacks(stack_a, NULL);
-	reverse_rotate(&stack_a, 'a');
-	ft_print_stacks(stack_a, NULL);
+	ft_print_stacks(stack_a, stack_b);
+	//reverse_rotate(&stack_a, 'a');
+	// push(&stack_a, &stack_b, 'b');
+	//insertion_sort(&stack_a, &stack_b);
+	// rotate(&stack_a, 'a');
+	selection_sort(&stack_a, &stack_b);
+	ft_printf("\n");
+	ft_print_stacks(stack_a, stack_b);
 	ft_lstclear(&stack_a, free);
 	return (EXIT_SUCCESS);
 }

@@ -13,29 +13,29 @@
 #include <stdlib.h>
 #include "includes/libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(int))
 {
+	(void)del;
 	if (!lst)
 		return ;
-	del(lst->content);
 	free(lst);
 }
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del))
 {
 	t_list	*tmp;
 
+	(void)del;
 	tmp = *lst;
 	while (*lst)
 	{
 		tmp = (*lst)->next;
-		del((*lst)->content);
 		free(*lst);
 		*lst = tmp;
 	}
 }
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(int ))
 {
 	if (!lst)
 		return ;
@@ -46,12 +46,13 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	}
 }
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, int(*f)(int), void (*del)(int))
 {
 	t_list	*new;
 	t_list	*new_list;
-	void	*content;
+	int		content;
 
+	(void)del;
 	if (!lst || !f || !del)
 		return (NULL);
 	new_list = NULL;
@@ -61,7 +62,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		new = ft_lstnew(content);
 		if (!new)
 		{
-			del(content);
 			ft_lstclear(&new_list, del);
 			return (NULL);
 		}

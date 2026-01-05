@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/04 12:37:11 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/05 21:56:19 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,17 +70,15 @@ char	**multiple_arg_parser(int argc, char **argv)
 t_list	*create_list(char **buffer)
 {
 	int	i;
-	int	*number;
+	int	number;
 	t_list	*stack_a;
 
 	i = 0;
 	stack_a = NULL;
+	number = 0;
 	while (buffer[i])
 	{
-		number = ft_calloc(1, sizeof(int));
-		if (!number)
-			return (ft_free_buffer(buffer), NULL); // need to free stack to
-		*number = ft_atoi(buffer[i]);
+		number = ft_atoi(buffer[i]);
 		if (!stack_a)
 			stack_a = ft_lstnew(number);
 		else
