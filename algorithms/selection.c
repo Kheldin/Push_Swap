@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/06 11:46:10 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:49:07 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static int	find_pos(t_list **stack_a)
 	int		pos_temp;
 
 	position = 0;
+	pos_temp = 0;
 	current = *stack_a;
 	temp = current;
 	while (current)
@@ -77,8 +78,11 @@ void	selection_sort(t_list **stack_a, t_list **stack_b)
 	while (stack_size > 0)
 	{
 		pos_temp = find_pos(stack_a);
-		rotate_direction(stack_a, stack_size, pos_temp);
-		push(stack_a, stack_b, 'b');
+		if (pos_temp != 0)
+		{
+			rotate_direction(stack_a, stack_size, pos_temp);
+			push(stack_a, stack_b, 'b');
+		}
 		stack_size--;
 	}
 	final_push(stack_a, stack_b);
