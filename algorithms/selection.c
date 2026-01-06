@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/06 11:36:19 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/06 11:43:55 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,17 @@ static void	rotate_direction(t_list **stack_a, int stack_size, int pos_temp)
 	}
 }
 
-void	selection_sort(t_list **stack_a, t_list **stack_b)
+static int	find_pos(t_list **stack_a)
 {
-	t_list	*temp;
 	t_list	*current;
-	int		stack_size;
+	t_list	*temp;
 	int		position;
 	int		pos_temp;
 
-	stack_size = ft_lstsize(*stack_a);
-	while (stack_size > 0)
-	{
-		current = *stack_a;
-		temp = current;
-		position = 0;
-		pos_temp = 0;
-		while (current)
+	position = 0;
+	current = *stack_a;
+	temp = current;
+	while (current)
 		{
 			if ((current)->content < temp->content)
 			{
@@ -70,6 +65,18 @@ void	selection_sort(t_list **stack_a, t_list **stack_b)
 			current = current->next;
 			position++;
         }
+	return (pos_temp);
+}
+
+void	selection_sort(t_list **stack_a, t_list **stack_b)
+{
+	int		stack_size;
+	int		pos_temp;
+
+	stack_size = ft_lstsize(*stack_a);
+	while (stack_size > 0)
+	{
+		pos_temp = find_pos(stack_a);
 		rotate_direction(stack_a, stack_size, pos_temp);
 		push(stack_a, stack_b, 'b');
 		stack_size--;
