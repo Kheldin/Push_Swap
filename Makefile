@@ -10,7 +10,7 @@ BUILDDIR	:= build
 
 SRCFILES	:= disorder.c main.c parser/parser.c parser/ft_free_buffer.c \
 			   operations/op_push.c operations/op_swap.c operations/op_rotate.c \
-			   algorithms/algorithms.c
+			   algorithms/insertion.c algorithms/selection.c
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h
