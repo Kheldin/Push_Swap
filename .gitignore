@@ -1,5 +1,6 @@
 *.txt
 push_swap
+.vscode
 # Prerequisites
 *.d
 

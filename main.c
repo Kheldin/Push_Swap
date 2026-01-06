@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/06 00:10:52 by anrogard         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 10:37:38 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,17 @@ int	main (int argc, char *argv[])
 	h_stack_a = &stack_a;
 	if (!stack_a)
 	{
-		write(2, "Error\n", 7);
+		write(1, "Error\n", 7);
 		return (EXIT_FAILURE);
 	}
-	ft_print_stacks(stack_a, stack_b);
+	//ft_print_stacks(stack_a, stack_b);
 	//reverse_rotate(&stack_a, 'a');
 	// push(&stack_a, &stack_b, 'b');
 	//insertion_sort(&stack_a, &stack_b);
 	// rotate(&stack_a, 'a');
 	selection_sort(&stack_a, &stack_b);
-	ft_printf("\n");
-	ft_print_stacks(stack_a, stack_b);
+	//ft_printf("\n");
+	//ft_print_stacks(stack_a, stack_b);
 	ft_lstclear(&stack_a, free);
 	return (EXIT_SUCCESS);
 }

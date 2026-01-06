@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithms.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/06 00:00:29 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/06 11:10:06 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,13 @@ void	selection_sort(t_list **stack_a, t_list **stack_b)
 {
 	t_list *temp;
     t_list *current;
-	int stack_a_size;
+	int stack_size;
     int position;
     int diff;
     int pos_temp;
     
-    current = *stack_a;
-    stack_a_size = ft_lstsize(current);
-    while (stack_a_size > 0)
+    stack_size = ft_lstsize(*stack_a);
+    while (stack_size > 0)
     {
         current = *stack_a;
         temp = current;
@@ -84,8 +83,8 @@ void	selection_sort(t_list **stack_a, t_list **stack_b)
             current = current->next;
             position++;
         }
-        diff = stack_a_size - pos_temp;
-        if (pos_temp <= stack_a_size / 2)
+        diff = stack_size - pos_temp;
+        if (pos_temp <= stack_size / 2)
         {
             while (pos_temp--)
                 rotate(stack_a, 'a');
@@ -97,6 +96,13 @@ void	selection_sort(t_list **stack_a, t_list **stack_b)
                 diff--;
         }
         push(stack_a, stack_b, 'b');
-        stack_a_size--;
+        stack_size--;
+    }
+    // Tout push sur stack a pour finir
+    stack_size = ft_lstsize(*stack_b);
+    while (stack_size > 0)
+    {
+        push(stack_a, stack_b, 'a');
+        stack_size--;
     }
 }
