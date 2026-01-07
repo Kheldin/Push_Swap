@@ -6,14 +6,14 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/07 18:29:46 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/07 18:32:02 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 	#include "../includes/push_swap.h"
 	#include "../libft/includes/libft.h"
 
-void	final_push(t_list **stack_a, t_list **stack_b)
+void	final_push_selection(t_list **stack_a, t_list **stack_b)
 {
 	int	stack_size;
 
@@ -85,5 +85,5 @@ void	selection_sort(t_list **stack_a, t_list **stack_b)
 		}
 		stack_size--;
 	}
-	final_push(stack_a, stack_b);
+	final_push_selection(stack_a, stack_b);
 }
