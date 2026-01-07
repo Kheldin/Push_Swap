@@ -6,34 +6,12 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/07 18:05:08 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/07 23:51:15 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "libft/includes/libft.h"
-
-void	ft_print_stacks(t_list *stack_a, t_list *stack_b)
-{
-	while (stack_a || stack_b)
-	{
-		if (stack_a)
-		{
-			ft_printf("%d ", stack_a->content);
-			stack_a = stack_a->next;
-		}
-		else
-			ft_printf("  ");
-		if (stack_b)
-		{
-			ft_printf("%d\n", stack_b->content);
-			stack_b = stack_b->next;
-		}
-		else
-			ft_printf("\n");
-	}
-	ft_printf("_ _\na b\n\n");
-}
 
 int	main(int argc, char *argv[])
 {
@@ -51,14 +29,16 @@ int	main(int argc, char *argv[])
 		write(1, "Error\n", 7);
 		return (EXIT_FAILURE);
 	}
+    get_indexs(&stack_a);
 	//ft_print_stacks(stack_a, stack_b);
 	// reverse_rotate(&stack_a, 'a');
 	// push(&stack_a, &stack_b, 'b');
 	//insertion_sort(&stack_a, &stack_b);
 	//rotate(&stack_a, 'a');
-	selection_sort(&stack_a, &stack_b);
+	//selection_sort(&stack_a, &stack_b, -1);
+	chunk_sort(&stack_a, &stack_b);
 	//ft_printf("\n");
-	ft_print_stacks(stack_a, stack_b);
+	//ft_print_stacks(stack_a, stack_b);
 	ft_lstclear(&stack_a, free);
 	return (EXIT_SUCCESS);
 }

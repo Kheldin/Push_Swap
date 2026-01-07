@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:04:58 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/05 21:54:23 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/07 21:13:46 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 typedef struct s_list
 {
 	int			content;
+	int			index;
 	struct s_list	*next;
 }	t_list;
 

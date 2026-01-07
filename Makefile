@@ -3,14 +3,17 @@ CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g3
 AR			:= ar rcs
 
-SRCDIR		:= . parser operations algorithms
+SRCDIR		:= . parser operations algorithms utils
 DEPDIR		:= .deps
 INCDIR		:= includes
 BUILDDIR	:= build
 
 SRCFILES	:= disorder.c main.c parser/parser.c parser/ft_free_buffer.c \
 			   operations/op_push.c operations/op_swap.c operations/op_rotate.c \
-			   algorithms/insertion.c algorithms/selection.c
+			   algorithms/insertion_sort.c algorithms/selection_sort.c \
+			   algorithms/chunk_sort.c utils/final_push.c utils/get_indexs.c\
+			   utils/print_stacks.c
+			   
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h

@@ -1,31 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insertion.c                                        :+:      :+:    :+:   */
+/*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:18:58 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/07 18:03:40 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/07 21:25:37 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
-
-static void	final_push_insertion(t_list **stack_a, t_list **stack_b)
-{
-	int	stack_size;
-
-	stack_size = ft_lstsize(*stack_b);
-	while (stack_size > 0)
-	{
-		push(stack_a, stack_b, 'a');
-		if (stack_size != 1)
-			rotate(stack_a, 'a');
-		stack_size--;
-	}
-}
 
 void	push_new_max(t_list **stack_a, t_list **stack_b, t_list *temp_max)
 {

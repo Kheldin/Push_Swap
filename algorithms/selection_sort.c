@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   selection.c                                        :+:      :+:    :+:   */
+/*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/07 18:32:02 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/07 23:44:15 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-	#include "../includes/push_swap.h"
-	#include "../libft/includes/libft.h"
-
-void	final_push_selection(t_list **stack_a, t_list **stack_b)
-{
-	int	stack_size;
-
-	stack_size = ft_lstsize(*stack_b);
-	while (stack_size > 0)
-	{
-		push(stack_a, stack_b, 'a');
-		stack_size--;
-	}
-}
+#include "../includes/push_swap.h"
+#include "../libft/includes/libft.h"
 
 static void	rotate_direction(t_list **stack_a, int stack_size, int pos_temp)
 {
@@ -69,21 +57,24 @@ static int	find_pos(t_list **stack_a)
 	return (pos_temp);
 }
 
-void	selection_sort(t_list **stack_a, t_list **stack_b)
+void	selection_sort(t_list **stack_a, t_list **stack_b, int chunks)
 {
 	int		stack_size;
 	int		pos_temp;
+	int		temp_chunks;
 
+	temp_chunks = chunks;
 	stack_size = ft_lstsize(*stack_a);
-	while (stack_size > 0)
+	if (chunks == -1)
+		chunks = stack_size;
+	while (chunks > 0)
 	{
+		stack_size = ft_lstsize(*stack_a);
 		pos_temp = find_pos(stack_a);
-		if (pos_temp != 0)
-		{
-			rotate_direction(stack_a, stack_size, pos_temp);
-			push(stack_a, stack_b, 'b');
-		}
-		stack_size--;
+		rotate_direction(stack_a, stack_size, pos_temp);
+		push(stack_a, stack_b, 'b');
+		chunks--;
 	}
-	final_push_selection(stack_a, stack_b);
+	if (temp_chunks == -1)
+		final_push_selection(stack_a, stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:03:58 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/05 21:46:44 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/07 22:02:18 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*ft_lstnew(int content)
 	if (!node)
 		return (NULL);
 	node->content = content;
+	node->index = -1;
 	node->next = NULL;
 	return (node);
 }
