@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/05 22:53:56 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/06 21:35:03 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void	reverse_rotate(t_list **node, char stack);
 void	reverse_rotate_rr(t_list **node_a, t_list **node_b);
 void	push(t_list **first_a, t_list **first_b, char stack);
 
+void	final_push(t_list **stack_a, t_list **stack_b);
+void	ft_print_stacks(t_list *stack_a, t_list *stack_b);
+
 void	insertion_sort(t_list **stack_a, t_list **stack_b);
-void    selection_sort(t_list **stack_a, t_list **stack_b);
+void	selection_sort(t_list **stack_a, t_list **stack_b);
 
 #endif

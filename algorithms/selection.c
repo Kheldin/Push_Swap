@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   selection.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/06 13:49:07 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:40:34 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-#include "../libft/includes/libft.h"
+	#include "../includes/push_swap.h"
+	#include "../libft/includes/libft.h"
 
-static void	final_push(t_list **stack_a, t_list **stack_b)
+void	final_push(t_list **stack_a, t_list **stack_b)
 {
 	int	stack_size;
 
@@ -21,6 +21,8 @@ static void	final_push(t_list **stack_a, t_list **stack_b)
 	while (stack_size > 0)
 	{
 		push(stack_a, stack_b, 'a');
+		if (stack_size != 1)
+			rotate(stack_a, 'a');
 		stack_size--;
 	}
 }
