@@ -6,18 +6,32 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:18:58 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/07 17:24:35 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/07 18:03:40 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-void push_new_max(t_list **stack_a, t_list **stack_b, t_list *temp_max)
+static void	final_push_insertion(t_list **stack_a, t_list **stack_b)
 {
-	int stack_a_size;
-	t_list *current_b;
-	int pos_max;
+	int	stack_size;
+
+	stack_size = ft_lstsize(*stack_b);
+	while (stack_size > 0)
+	{
+		push(stack_a, stack_b, 'a');
+		if (stack_size != 1)
+			rotate(stack_a, 'a');
+		stack_size--;
+	}
+}
+
+void	push_new_max(t_list **stack_a, t_list **stack_b, t_list *temp_max)
+{
+	int		stack_a_size;
+	t_list	*current_b;
+	int		pos_max;
 
 	pos_max = 0;
 	current_b = *stack_b;
@@ -35,15 +49,15 @@ void push_new_max(t_list **stack_a, t_list **stack_b, t_list *temp_max)
 	push(stack_a, stack_b, 'b');
 }
 
-void push_new_min(t_list **stack_a, t_list **stack_b, t_list *temp_min)
+void	push_new_min(t_list **stack_a, t_list **stack_b, t_list *temp_min)
 {
-	int stack_a_size;
-	t_list *current_b;
-	int pos_min;
+	int		stack_a_size;
+	t_list	*current_b;
+	int		pos_min;
 
 	current_b = *stack_b;
 	pos_min = 0;
-	stack_a_size = ft_lstsize(*stack_a); 
+	stack_a_size = ft_lstsize(*stack_a);
 	while (current_b->content != temp_min->content)
 	{
 		current_b = current_b->next;
@@ -59,14 +73,14 @@ void push_new_min(t_list **stack_a, t_list **stack_b, t_list *temp_min)
 
 void	insertion_sort(t_list **stack_a, t_list **stack_b)
 {
-	t_list *temp_min;
-	t_list *current_b;
-	t_list *temp_max;
-	int pos_b;
-	int pos_b_temp;
-	int stack_a_size;
-	int stack_a_size_temp;
-	
+	t_list	*temp_min;
+	t_list	*current_b;
+	t_list	*temp_max;
+	int		pos_b;
+	int		pos_b_temp;
+	int		stack_a_size;
+	int		stack_a_size_temp;
+
 	stack_a_size = ft_lstsize(*stack_a) - 2;
 	stack_a_size_temp = stack_a_size;
 	push(stack_a, stack_b, 'b');
@@ -97,7 +111,9 @@ void	insertion_sort(t_list **stack_a, t_list **stack_b)
 		{
 			pos_b = 0;
 			current_b = *stack_b;
-			while (current_b->next && !((*stack_a)->content >= current_b->content && (*stack_a)->content <= current_b->next->content))
+			while (current_b->next
+				&& !((*stack_a)->content >= current_b->content
+					&& (*stack_a)->content <= current_b->next->content))
 			{
 				pos_b++;
 				current_b = current_b->next;
@@ -114,7 +130,5 @@ void	insertion_sort(t_list **stack_a, t_list **stack_b)
 	}
 	while ((*stack_b) != temp_min)
 		rotate(stack_b, 'b');
-	final_push(stack_a, stack_b);
+	final_push_insertion(stack_a, stack_b);
 }
-
-

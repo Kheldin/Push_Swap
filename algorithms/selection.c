@@ -6,14 +6,14 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/07 17:54:02 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/07 18:03:47 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-	#include "../includes/push_swap.h"
-	#include "../libft/includes/libft.h"
+#include "../includes/push_swap.h"
+#include "../libft/includes/libft.h"
 
-void	final_push(t_list **stack_a, t_list **stack_b)
+static void	final_push_selection(t_list **stack_a, t_list **stack_b)
 {
 	int	stack_size;
 
@@ -21,8 +21,6 @@ void	final_push(t_list **stack_a, t_list **stack_b)
 	while (stack_size > 0)
 	{
 		push(stack_a, stack_b, 'a');
-		if (stack_size != 1)
-			rotate(stack_a, 'a');
 		stack_size--;
 	}
 }
@@ -73,8 +71,8 @@ static int	find_pos(t_list **stack_a)
 
 void	selection_sort(t_list **stack_a, t_list **stack_b)
 {
-	int		stack_size;
-	int		pos_temp;
+	int	stack_size;
+	int	pos_temp;
 
 	stack_size = ft_lstsize(*stack_a);
 	while (stack_size > 0)
@@ -87,5 +85,5 @@ void	selection_sort(t_list **stack_a, t_list **stack_b)
 		}
 		stack_size--;
 	}
-	final_push(stack_a, stack_b);
+	final_push_selection(stack_a, stack_b);
 }
