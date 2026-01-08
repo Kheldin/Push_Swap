@@ -93,10 +93,8 @@ t_list	*create_list(char **buffer)
 t_list	*input_parser(int argc, char *argv[])
 {
 	t_list *stack_a;
-	int		i;
 	char 	**buffer;
 
-	i = 0;
 	stack_a = NULL;
 	buffer = NULL;
 	if (argc == 2)

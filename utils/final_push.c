@@ -25,6 +25,7 @@ void	final_push_insertion(t_list **stack_a, t_list **stack_b)
 			rotate(stack_a, 'a');
 		stack_size--;
 	}
+	rotate(stack_a, 'a');
 }
 
 void	final_push_selection(t_list **stack_a, t_list **stack_b)

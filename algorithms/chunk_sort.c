@@ -16,31 +16,29 @@
 int	ft_sqrt(int numbers)
 {
 	int	n;
-	int	temp;
 
 	n = 1;
-	temp = numbers;
 	while (n * n < numbers)
 		n++;
 	return (n);
 }
 
-// void    push_chunk(t_list **stack_a, t_list **stack_b, int limit)
-// {
-//     int i;
-//     int size;
+void    push_chunk(t_list **stack_a, t_list **stack_b, int limit)
+{
+    int i;
+    int size;
 
-//     i = 0;
-//     size = ft_lstsize(*stack_a);
-//     while (i < size)
-//     {
-//         if ((*stack_a)->index < limit)
-//             push(stack_a, stack_b, 'b');
-//         else
-//             rotate(stack_a, 'a');
-//         i++;
-//     }
-// }
+    i = 0;
+    size = ft_lstsize(*stack_a);
+    while (i < size)
+    {
+        if ((*stack_a)->index < limit)
+            push(stack_a, stack_b, 'b');
+        else
+            rotate(stack_a, 'a');
+        i++;
+    }
+}
 
 void    chunk_sort(t_list **stack_a, t_list **stack_b)
 {

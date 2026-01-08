@@ -15,7 +15,7 @@
 
 int	main(int argc, char *argv[])
 {
-	t_list	**h_stack_a;
+	//t_list	**h_stack_a;
 	t_list	*stack_a;
 	t_list	*stack_b;
 
@@ -23,20 +23,20 @@ int	main(int argc, char *argv[])
 	stack_b = NULL;
 	if (!stack_a)
 		return (EXIT_FAILURE);
-	h_stack_a = &stack_a;
+	//h_stack_a = &stack_a;
 	if (!stack_a)
 	{
 		write(1, "Error\n", 7);
 		return (EXIT_FAILURE);
 	}
-    get_indexs(&stack_a);
+    //get_indexs(&stack_a);
 	//ft_print_stacks(stack_a, stack_b);
 	// reverse_rotate(&stack_a, 'a');
 	// push(&stack_a, &stack_b, 'b');
-	//insertion_sort(&stack_a, &stack_b);
+	insertion_sort(&stack_a, &stack_b);
 	//rotate(&stack_a, 'a');
 	//selection_sort(&stack_a, &stack_b, -1);
-	chunk_sort(&stack_a, &stack_b);
+	//chunk_sort(&stack_a, &stack_b);
 	//ft_printf("\n");
 	//ft_print_stacks(stack_a, stack_b);
 	ft_lstclear(&stack_a, free);
