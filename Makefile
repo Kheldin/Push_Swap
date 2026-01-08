@@ -12,7 +12,7 @@ SRCFILES	:= disorder.c main.c parser/parser.c parser/ft_free_buffer.c \
 			   operations/op_push.c operations/op_swap.c operations/op_rotate.c \
 			   algorithms/insertion_sort.c algorithms/selection_sort.c \
 			   algorithms/chunk_sort.c utils/final_push.c utils/get_indexs.c\
-			   utils/print_stacks.c
+			   utils/print_stacks.c algorithms/selection_sort_for_chunk.c
 			   
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
