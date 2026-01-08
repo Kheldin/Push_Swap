@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:24:29 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/07 23:53:12 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:47:29 by rogard-anto      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ void    chunk_sort(t_list **stack_a, t_list **stack_b)
     i_chunks = 1;
     while (i_chunks <= chunks)
     {
-        selection_sort(stack_a, stack_b, chunks);
+        push_chunk(stack_a, stack_b, chunks * i_chunks);
         i_chunks++;
     }
     size = ft_lstsize(*stack_a);
     while (size > 0)
     {
-        push(stack_b, stack_a, 'b');
+        push(stack_a, stack_b, 'b');
         size--;
     }
     final_push_selection(stack_a, stack_b);
