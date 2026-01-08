@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/07 23:38:05 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/08 14:05:48 by rogard-anto      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	push(t_list **first_a, t_list **first_b, char stack);
 void	ft_print_stacks(t_list *stack_a, t_list *stack_b);
 
 void	insertion_sort(t_list **stack_a, t_list **stack_b);
-void	selection_sort(t_list **stack_a, t_list **stack_b, int chunks);
+void	selection_sort(t_list **stack_a, t_list **stack_b);
 
 void	final_push_selection(t_list **stack_a, t_list **stack_b);
 void	final_push_insertion(t_list **stack_a, t_list **stack_b);

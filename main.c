@@ -6,7 +6,7 @@
 /*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/08 13:34:31 by rogard-anto      ###   ########.fr       */
+/*   Updated: 2026/01/08 14:12:35 by rogard-anto      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	main(int argc, char *argv[])
 		write(1, "Error\n", 7);
 		return (EXIT_FAILURE);
 	}
-    //get_indexs(&stack_a);
+    get_indexs(&stack_a);
 	//ft_print_stacks(stack_a, stack_b);
 	// reverse_rotate(&stack_a, 'a');
 	// push(&stack_a, &stack_b, 'b');
 	//insertion_sort(&stack_a, &stack_b);
 	//rotate(&stack_a, 'a');
-	//selection_sort(&stack_a, &stack_b, -1);
+	//selection_sort(&stack_a, &stack_b);
 	chunk_sort(&stack_a, &stack_b);
 	ft_printf("\n");
 	ft_print_stacks(stack_a, stack_b);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/07 23:44:15 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/08 14:09:37 by rogard-anto      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	find_pos(t_list **stack_a)
 	temp = current;
 	while (current)
 	{
-		if ((current)->content < temp->content)
+		if ((current)->content > temp->content)
 		{
 			temp = current;
 			pos_temp = position;
@@ -57,24 +57,19 @@ static int	find_pos(t_list **stack_a)
 	return (pos_temp);
 }
 
-void	selection_sort(t_list **stack_a, t_list **stack_b, int chunks)
+void	selection_sort(t_list **stack_a, t_list **stack_b)
 {
 	int		stack_size;
 	int		pos_temp;
-	int		temp_chunks;
 
-	temp_chunks = chunks;
 	stack_size = ft_lstsize(*stack_a);
-	if (chunks == -1)
-		chunks = stack_size;
-	while (chunks > 0)
+	while (stack_size > 0)
 	{
 		stack_size = ft_lstsize(*stack_a);
 		pos_temp = find_pos(stack_a);
 		rotate_direction(stack_a, stack_size, pos_temp);
 		push(stack_a, stack_b, 'b');
-		chunks--;
+		stack_size--;
 	}
-	if (temp_chunks == -1)
-		final_push_selection(stack_a, stack_b);
+	//final_push_selection(stack_a, stack_b);
 }
