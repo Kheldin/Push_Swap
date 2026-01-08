@@ -6,7 +6,7 @@
 /*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/08 14:12:35 by rogard-anto      ###   ########.fr       */
+/*   Updated: 2026/01/08 14:16:36 by rogard-anto      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	main(int argc, char *argv[])
 	//rotate(&stack_a, 'a');
 	//selection_sort(&stack_a, &stack_b);
 	chunk_sort(&stack_a, &stack_b);
-	ft_printf("\n");
-	ft_print_stacks(stack_a, stack_b);
+	//ft_printf("\n");
+	//ft_print_stacks(stack_a, stack_b);
 	ft_lstclear(&stack_a, free);
 	return (EXIT_SUCCESS);
 }
