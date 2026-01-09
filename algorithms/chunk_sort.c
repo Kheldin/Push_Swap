@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:24:29 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/09 14:23:53 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/09 23:57:42 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 int	ft_sqrt(int numbers)
 {
 	int	n;
-	
+
 	n = 1;
 	while (n * n < numbers)
 		n++;
 	return (n);
 }
 
-void	push_chunk(t_list **stack_a, t_list **stack_b, int max, int minimum)
+void	push_chunk(t_list **stack_a, t_list **stack_b, int max, int minimum,
+		struct bench_struct *op_total)
 {
 	int	i;
 	int	size;
@@ -33,14 +34,15 @@ void	push_chunk(t_list **stack_a, t_list **stack_b, int max, int minimum)
 	while (i < size)
 	{
 		if ((*stack_a)->index < max && (*stack_a)->index >= minimum)
-			push(stack_a, stack_b, 'b');
+			push(stack_a, stack_b, 'b', op_total);
 		else
 			rotate(stack_a, 'a');
 		i++;
 	}
 }
 
-void	chunk_sort(t_list **stack_a, t_list **stack_b)
+void	chunk_sort(t_list **stack_a, t_list **stack_b,
+		struct bench_struct *op_total)
 {
 	int	stack_a_size;
 	int	chunks;
@@ -52,14 +54,14 @@ void	chunk_sort(t_list **stack_a, t_list **stack_b)
 	i_chunks = chunks + 1;
 	while (i_chunks > 0)
 	{
-		push_chunk(stack_a, stack_b, stack_a_size, stack_a_size - chunks + 1);
+		push_chunk(stack_a, stack_b, stack_a_size, stack_a_size - chunks + 1, op_total);
 		i_chunks--;
 		stack_a_size--;
 	}
 	size = ft_lstsize(*stack_a);
 	while (size > 0)
 	{
-		push(stack_a, stack_b, 'b');
+		push(stack_a, stack_b, 'b', op_total);
 		size--;
 	}
 	selection_sort_chunk(stack_a, stack_b);

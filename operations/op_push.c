@@ -6,13 +6,14 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 18:49:53 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/09 13:40:16 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/09 23:50:23 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
+#include "../includes/bench.h"
 
-void	push(t_list **first_a, t_list **first_b, char stack)
+void	push(t_list **first_a, t_list **first_b, char stack, struct bench_struct *op_total)
 {
 	t_list	*temp;
 
@@ -24,6 +25,7 @@ void	push(t_list **first_a, t_list **first_b, char stack)
 		(*first_b) = (*first_b)->next;
 		ft_lstadd_front(first_a, temp);
 		write(1, "pa\n", 3);
+		op_total->pa += 1;
 	}
 	if (stack == 'b')
 	{
@@ -33,5 +35,6 @@ void	push(t_list **first_a, t_list **first_b, char stack)
 		(*first_a) = (*first_a)->next;
 		ft_lstadd_front(first_b, temp);
 		write(1, "pb\n", 3);
+		op_total->pb += 1;
 	}
 }

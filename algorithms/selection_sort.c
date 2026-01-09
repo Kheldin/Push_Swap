@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/08 15:00:29 by rogard-anto      ###   ########.fr       */
+/*   Updated: 2026/01/09 23:59:25 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,11 @@ static int	find_pos(t_list **stack_a)
 	return (pos_temp);
 }
 
-void	selection_sort(t_list **stack_a, t_list **stack_b)
+void	selection_sort(t_list **stack_a, t_list **stack_b,
+		struct bench_struct *op_total)
 {
-	int		stack_size;
-	int		pos_temp;
+	int	stack_size;
+	int	pos_temp;
 
 	stack_size = ft_lstsize(*stack_a);
 	while (stack_size > 0)
@@ -68,8 +69,8 @@ void	selection_sort(t_list **stack_a, t_list **stack_b)
 		stack_size = ft_lstsize(*stack_a);
 		pos_temp = find_pos(stack_a);
 		rotate_direction(stack_a, stack_size, pos_temp);
-		push(stack_a, stack_b, 'b');
+		push(stack_a, stack_b, 'b', op_total);
 		stack_size--;
 	}
-	final_push_selection(stack_a, stack_b);
+	final_push_selection(stack_a, stack_b, op_total);
 }
