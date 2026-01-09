@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/08 14:59:13 by rogard-anto      ###   ########.fr       */
+/*   Updated: 2026/01/09 19:45:17 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ void	final_push_insertion(t_list **stack_a, t_list **stack_b);
 
 void	chunk_sort(t_list **stack_a, t_list **stack_b);
 void	get_indexs(t_list **stack_a);
+int itoa_binary(int n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:24:29 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/09 13:49:43 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:23:53 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	ft_sqrt(int numbers)
 {
 	int	n;
-
+	
 	n = 1;
 	while (n * n < numbers)
 		n++;
