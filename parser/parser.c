@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/06 10:37:20 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/09 13:38:19 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	**one_arg_parser(char **argv)
 	i = 0;
 	buffer = ft_split(argv[1], ' ');
 	if (!buffer)
-		return NULL;
+		return (NULL);
 	while (buffer[i])
 	{
 		if (!valid_arg(buffer[i]))
@@ -60,8 +60,8 @@ char	**multiple_arg_parser(int argc, char **argv)
 	{
 		if (!valid_arg(argv[i]))
 			return (ft_free_buffer(buffer), NULL);
-		buffer[i-1] = ft_strdup(argv[i]);
-		if (!buffer[i-1])
+		buffer[i - 1] = ft_strdup(argv[i]);
+		if (!buffer[i - 1])
 			return (ft_free_buffer(buffer), NULL);
 		i++;
 	}
@@ -71,8 +71,8 @@ char	**multiple_arg_parser(int argc, char **argv)
 
 t_list	*create_list(char **buffer)
 {
-	int	i;
-	int	number;
+	int		i;
+	int		number;
 	t_list	*stack_a;
 
 	i = 0;
@@ -87,13 +87,13 @@ t_list	*create_list(char **buffer)
 			ft_lstadd_back(&stack_a, ft_lstnew(number));
 		i++;
 	}
-	return stack_a;
+	return (stack_a);
 }
 
 t_list	*input_parser(int argc, char *argv[])
 {
-	t_list *stack_a;
-	char 	**buffer;
+	t_list	*stack_a;
+	char	**buffer;
 
 	stack_a = NULL;
 	buffer = NULL;

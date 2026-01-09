@@ -13,19 +13,17 @@
 #include <stdlib.h>
 #include "includes/libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(int))
+void	ft_lstdelone(t_list *lst)
 {
-	(void)del;
 	if (!lst)
 		return ;
 	free(lst);
 }
 
-void	ft_lstclear(t_list **lst, void (*del))
+void	ft_lstclear(t_list **lst)
 {
 	t_list	*tmp;
 
-	(void)del;
 	tmp = *lst;
 	while (*lst)
 	{
@@ -46,14 +44,13 @@ void	ft_lstiter(t_list *lst, void (*f)(int ))
 	}
 }
 
-t_list	*ft_lstmap(t_list *lst, int(*f)(int), void (*del)(int))
+t_list	*ft_lstmap(t_list *lst, int (*f)(int))
 {
 	t_list	*new;
 	t_list	*new_list;
 	int		content;
 
-	(void)del;
-	if (!lst || !f || !del)
+	if (!lst || !f)
 		return (NULL);
 	new_list = NULL;
 	while (lst)
@@ -62,7 +59,7 @@ t_list	*ft_lstmap(t_list *lst, int(*f)(int), void (*del)(int))
 		new = ft_lstnew(content);
 		if (!new)
 		{
-			ft_lstclear(&new_list, del);
+			ft_lstclear(&new_list);
 			return (NULL);
 		}
 		ft_lstadd_back(&new_list, new);

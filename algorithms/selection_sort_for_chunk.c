@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort_for_chunk.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:57:13 by rogard-anto       #+#    #+#             */
-/*   Updated: 2026/01/08 14:58:21 by rogard-anto      ###   ########.fr       */
+/*   Updated: 2026/01/09 13:47:50 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-static void	rotate_direction_chunk(t_list **stack_b, int stack_size, int pos_temp)
+static void	rotate_direction_chunk(t_list **stack_b, int stack_size,
+		int pos_temp)
 {
 	int	diff;
 
@@ -59,8 +60,8 @@ static int	find_pos_chunk(t_list **stack_a)
 
 void	selection_sort_chunk(t_list **stack_a, t_list **stack_b)
 {
-	int		stack_size;
-	int		pos_temp;
+	int	stack_size;
+	int	pos_temp;
 
 	stack_size = ft_lstsize(*stack_b);
 	while (stack_size > 0)

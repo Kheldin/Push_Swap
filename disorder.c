@@ -6,13 +6,13 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:41 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/05 21:26:30 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/09 13:49:55 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-float get_disorder(int *numbers)
+float	get_disorder(int *numbers)
 {
 	float	mistakes;
 	float	total_pair;

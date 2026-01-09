@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/08 15:00:36 by rogard-anto      ###   ########.fr       */
+/*   Updated: 2026/01/09 13:46:09 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int	main(int argc, char *argv[])
 	selection_sort(&stack_a, &stack_b);
 	// chunk_sort(&stack_a, &stack_b);
 	// ft_print_stacks(stack_a, stack_b);
-	ft_lstclear(&stack_a, free);
+	ft_lstclear(&stack_a);
 	return (EXIT_SUCCESS);
 }
