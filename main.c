@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 22:07:32 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 22:45:46 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char *argv[])
 	// rotate(&stack_a, 'a');
 	// selection_sort(&stack_a, &stack_b, op_total);
 	radix_sort(&stack_a, &stack_b, op_total);
-	print_bench(op_total, disorder);
+	//print_bench(op_total, disorder);
 	// ft_printf("pa : %d\n", op_total->pa);
 	// chunk_sort(&stack_a, &stack_b, op_total);
 	write(1, "\n", 1);

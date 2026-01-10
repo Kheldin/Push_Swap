@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:11:48 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 22:24:11 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 22:46:00 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void  push_back(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 	while (current_b)
 	{
 		push(stack_a, stack_b, 'a', op_total);
-		current_b = current_b->next;
+		current_b = *stack_b;
 	}
 }
 
@@ -49,10 +49,7 @@ int	find_max(t_list **stack_a)
 	{
 		value = itoa_binary(current->index);
 		if (value > max)
-		{
-			ft_printf("New Max index is %d\n", current->index);
 			max = value;
-		}
 		current = current->next;
 	}
 	return (max);
@@ -69,7 +66,6 @@ void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 	current = *stack_a;
     count = 0;
 	max = find_max(stack_a);
-	ft_printf(" === MAX = %d\n", max);
 	current = *stack_a;
 	while (count < max)
 	{
@@ -81,10 +77,13 @@ void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 				push(stack_a, stack_b, 'b', op_total);
 			} 
 			else
+			{
 				rotate(stack_a, 'a', op_total, 0);
+			}
+			stack_size--;
 			current = *stack_a;
-			stack_size--; // Peut etre mettre ca dans le if au dessus ? 
 		}
+		max--;
 		push_back(stack_a, stack_b, op_total);
 		shift(stack_a);
 		count++;
