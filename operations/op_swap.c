@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 15:55:15 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/05 21:47:30 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 11:44:14 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
-#include <unistd.h>
+#include "../includes/bench.h"
 
-void	swap(t_list *first, char stack)
+
+void	swap(t_list *first, char stack, t_bench *op_total, int is_rr)
 {
 	int		temp_content;
 	t_list	*second;
@@ -24,15 +25,25 @@ void	swap(t_list *first, char stack)
 	temp_content = first->content;
 	first->content = second->content;
 	second->content = temp_content;
-	if (stack == 'a')
-		write(1, "sa\n", 3);
-	else if (stack == 'b')
-		write(1, "sb\n", 3);
+	if (!is_rr)
+	{
+		if (stack == 'a')
+		{
+			write(1, "sa\n", 3);
+			op_total->sa += 1;
+		}
+		else if (stack == 'b')
+		{
+			write(1, "sb\n", 3);
+			op_total->sb += 1;
+		}
+	}
 }
 
-void	swap_ss(t_list *first_a, t_list *first_b)
+void	swap_ss(t_list *first_a, t_list *first_b, t_bench *op_total)
 {
-	swap(first_a, ' ');
-	swap(first_b, ' ');
+	swap(first_a, ' ', op_total, 1);
+	swap(first_b, ' ', op_total, 1);
 	write(1, "ss\n", 3);
+	op_total->ss += 1;
 }

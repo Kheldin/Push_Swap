@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 11:24:39 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 11:46:14 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	rotate_direction(t_list **stack_a, int stack_size,
 	{
 		while (diff > 0)
 		{
-			reverse_rotate(stack_a, 'a');
+			reverse_rotate(stack_a, 'a', op_total, 0);
 			diff--;
 		}
 	}

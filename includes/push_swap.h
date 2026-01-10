@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 11:36:20 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 11:44:32 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ char	**multiple_arg_parser(int argc, char **argv);
 t_list	*create_list(char **buffer);
 t_list	*input_parser(int argc, char *argv[]);
 
-void	swap(t_list *first, char stack);
-void	swap_ss(t_list *first_a, t_list *first_b);
+void	swap(t_list *first, char stack, t_bench *op_total, int is_rr);
+void	swap_ss(t_list *first_a, t_list *first_b, t_bench *op_total);
 void	rotate(t_list **node, char stack, t_bench *op_total, int is_rr);
 void	rotate_rr(t_list **node_a, t_list **node_b, t_bench *op_total);
 void	reverse_rotate(t_list **node, char stack,
