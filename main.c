@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 13:14:18 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 13:23:51 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,12 @@ int	main(int argc, char *argv[])
 		write(1, "Error\n", 7);
 		return (EXIT_FAILURE);
 	}
-	op_total = NULL;
-	init_bench_struct(op_total);
+	op_total = init_bench_struct();
 	get_indexs(&stack_a);
-	// ft_print_stacks(stack_a, stack_b);
-	// reverse_rotate(&stack_a, 'a');
-	// push(&stack_a, &stack_b, 'b');
 	//insertion_sort(&stack_a, &stack_b);
 	// rotate(&stack_a, 'a');
 	selection_sort(&stack_a, &stack_b, op_total);
-	// ft_printf("pa : %d\n", op_total.pa);
+	// ft_printf("pa : %d\n", op_total->pa);
 	// chunk_sort(&stack_a, &stack_b);
 	// ft_print_stacks(stack_a, stack_b);
 	// ft_printf("%d\n", itoa_binary(11));
