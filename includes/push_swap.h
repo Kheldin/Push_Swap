@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 17:20:16 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 19:24:04 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	final_push_selection(t_list **stack_a, t_list **stack_b,
 void	chunk_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);
 void	get_indexs(t_list **stack_a);
 int		itoa_binary(int n);
+void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);
 
 float get_disorder(t_list **stack_a);
 // void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);

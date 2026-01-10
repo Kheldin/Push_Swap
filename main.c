@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 18:28:12 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 19:27:29 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ int	main(int argc, char *argv[])
 	stack_a = input_parser(argc, argv);
 	stack_b = NULL;
 	if (!stack_a)
-		return (EXIT_FAILURE);
-	if (!stack_a)
 	{
-		write(1, "Error\n", 7);
+		write(2, "Error\n", 7);
 		return (EXIT_FAILURE);
 	}
 	disorder = get_disorder(&stack_a);
@@ -40,11 +38,13 @@ int	main(int argc, char *argv[])
 	// get_indexs(&stack_a);
 	// insertion_sort(&stack_a, &stack_b);
 	// rotate(&stack_a, 'a');
-	selection_sort(&stack_a, &stack_b, op_total);
+	// selection_sort(&stack_a, &stack_b, op_total);
+	radix_sort(&stack_a, &stack_b, op_total);
 	print_bench(op_total, disorder);
 	// ft_printf("pa : %d\n", op_total->pa);
 	// chunk_sort(&stack_a, &stack_b, op_total);
-	// ft_print_stacks(stack_a, stack_b);
+	write(1, "\n", 1);
+	ft_print_stacks(stack_a, stack_b);
 	// ft_printf("%d\n", itoa_binary(11));
 	ft_lstclear(&stack_a);
 	free(op_total);

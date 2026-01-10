@@ -14,7 +14,7 @@ SRCFILES	:= disorder.c main.c parser/parser.c parser/ft_free_buffer.c \
 			   algorithms/chunk_sort.c utils/final_push.c utils/get_indexs.c\
 			   utils/print_stacks.c algorithms/selection_sort_for_chunk.c \
 			   utils/itoa_binary.c\
-			   bench/bench.c
+			   bench/bench.c algorithms/radix_sort.c
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h
