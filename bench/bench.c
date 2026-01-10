@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 23:36:15 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 18:38:12 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 19:11:40 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ void	print_bench(t_bench *op_total, float disorder)
 		ft_putendl_fd(str, 2);
 		free(str);
 	}
+	ft_putstr_fd("[bench] strategy: ", 2);
+	ft_putendl_fd("", 2);
 	ft_putstr_fd("[bench] total_ops: ", 2);
 	ft_putnbr_fd(tot, 2);
 	ft_putendl_fd("", 2);

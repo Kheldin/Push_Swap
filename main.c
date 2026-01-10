@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 18:28:12 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 19:16:47 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 int	main(int argc, char *argv[])
 {
 	t_list	*stack_a;
-	t_list	*stack_b;
 	t_bench	*op_total;
 	float disorder;
 
