@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:11:48 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 19:28:33 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 19:32:12 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ static void	shift(t_list **stack_a)
 
 void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 {
-	size_t	max;
-    size_t  count;
+	int	max;
+    int  count;
 	int		stack_size;
 	t_list	*current;
 
@@ -50,10 +50,12 @@ void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 	max = (itoa_binary(current->index));
 	while (current)
 	{
-		if (itoa_binary(current->index) > (int)max)
+		ft_printf("Itoa Binary return = %d\n", max);
+		if (itoa_binary(current->index) > max)
 			max = itoa_binary(current->index);
 		current = current->next;
 	}
+	ft_printf(" === MAX = %d\n", max);
 	current = *stack_a;
 	// Push 0 bit to B stack
 	while (count < max)
