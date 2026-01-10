@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 13:12:56 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 14:18:42 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "../libft/includes/libft.h"
 # include "bench.h"
 
-float	get_disorder(int *numbers);
+float	get_disorder(t_list **stack_a);
 
 void	ft_free_buffer(char **buffer);
 
@@ -38,13 +38,11 @@ void	push(t_list **first_a, t_list **first_b, char stack,
 
 void	ft_print_stacks(t_list *stack_a, t_list *stack_b);
 
-//void	insertion_sort(t_list **stack_a, t_list **stack_b);
 void	selection_sort(t_list **stack_a, t_list **stack_b,
 		t_bench *op_total);
 void	selection_sort_chunk(t_list **stack_a,
 	t_list **stack_b, t_bench *op_total);
-
-// void	final_push_insertion(t_list **stack_a, t_list **stack_b);
+	
 void	final_push_selection(t_list **stack_a, t_list **stack_b,
 		t_bench *op_total);
 
@@ -52,6 +50,7 @@ void	chunk_sort(t_list **stack_a, t_list **stack_b,
 			t_bench *op_total);
 void	get_indexs(t_list **stack_a);
 int		itoa_binary(int n);
+char *ft_itoa_float(float disorder);
 
 //void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);
 
