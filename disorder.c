@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:41 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 17:57:18 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 18:22:26 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ float	get_disorder(t_list **stack_a)
 		}
 		current = current->next;
 	}
+	if (total_pair == 0)
+		return (0);
 	return ((mistakes / total_pair) * 10000);
 }

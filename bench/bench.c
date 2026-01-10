@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 23:36:15 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 17:56:36 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 18:18:41 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,20 @@
 
 char	*ft_itoa_disorder(int n)
 {
-	ft_printf("n ======== %d\n", n);
 	char	*res;
 	int		len;
 	long	nb;
 	int i;
 	
+	if (n > 2147483647 || n < -214483648)
+	{
+		ft_putstr_fd("100.00%", 2);
+		return (NULL);
+	}
 	i = 0;
 	len = 6;
 	if (n == 10000)
-		len++;
+		len += 1;
 	res = ft_calloc(len + 1, sizeof(char));
 	if (!res)
 		return (NULL);
@@ -106,15 +110,14 @@ void	print_bench(t_bench *op_total, float disorder)
 	int	tot;
 	char *str;
 
-	__builtin_printf("floooooooooatttttttt = %f\n", disorder);
 	tot = op_total->sa + op_total->sb + op_total->ss + op_total->ra
 		+ op_total->rb + op_total->rr + op_total->rra + op_total->rrb
 		+ op_total->rrr + op_total->pa + op_total->pb + op_total->ss;
 	ft_putstr_fd("[bench] disorder: ", 2);
 	str = ft_itoa_disorder((int)disorder);
-	ft_putstr_fd(str, 2);
-	//free(str);
-	ft_putendl_fd("", 2);
+	ft_putendl_fd(str, 2);
+	if (str)
+		free(str);
 	ft_putstr_fd("[bench] total_ops: ", 2);
 	ft_putnbr_fd(tot, 2);
 	ft_putendl_fd("", 2);
