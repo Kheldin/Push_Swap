@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 17:53:53 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 18:28:12 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 	disorder = get_disorder(&stack_a);
+	if (disorder == -1)
+	{
+		ft_lstclear(&stack_a);
+		return (EXIT_SUCCESS);
+	}
 	op_total = init_bench_struct();
 	// get_indexs(&stack_a);
 	// insertion_sort(&stack_a, &stack_b);

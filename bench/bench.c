@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 23:36:15 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 18:18:41 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 18:23:46 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,7 @@ char	*ft_itoa_disorder(int n)
 	int		len;
 	long	nb;
 	int i;
-	
-	if (n > 2147483647 || n < -214483648)
-	{
-		ft_putstr_fd("100.00%", 2);
-		return (NULL);
-	}
+
 	i = 0;
 	len = 6;
 	if (n == 10000)
