@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:24:29 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/09 23:57:42 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 11:36:40 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_sqrt(int numbers)
 }
 
 void	push_chunk(t_list **stack_a, t_list **stack_b, int max, int minimum,
-		struct bench_struct *op_total)
+		t_bench *op_total)
 {
 	int	i;
 	int	size;
@@ -36,13 +36,13 @@ void	push_chunk(t_list **stack_a, t_list **stack_b, int max, int minimum,
 		if ((*stack_a)->index < max && (*stack_a)->index >= minimum)
 			push(stack_a, stack_b, 'b', op_total);
 		else
-			rotate(stack_a, 'a');
+			rotate(stack_a, 'a', op_total, 0);
 		i++;
 	}
 }
 
 void	chunk_sort(t_list **stack_a, t_list **stack_b,
-		struct bench_struct *op_total)
+		t_bench *op_total)
 {
 	int	stack_a_size;
 	int	chunks;

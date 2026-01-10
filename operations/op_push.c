@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 18:49:53 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/09 23:50:23 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 11:18:13 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "../includes/bench.h"
 
-void	push(t_list **first_a, t_list **first_b, char stack, struct bench_struct *op_total)
+void	push(t_list **first_a, t_list **first_b, char stack, t_bench *op_total)
 {
 	t_list	*temp;
 

@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/09 23:59:25 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 11:24:39 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-static void	rotate_direction(t_list **stack_a, int stack_size, int pos_temp)
+static void	rotate_direction(t_list **stack_a, int stack_size,
+		int pos_temp, t_bench *op_total)
 {
 	int	diff;
 
@@ -21,7 +22,7 @@ static void	rotate_direction(t_list **stack_a, int stack_size, int pos_temp)
 	if (pos_temp <= stack_size / 2)
 	{
 		while (pos_temp--)
-			rotate(stack_a, 'a');
+			rotate(stack_a, 'a', op_total, 0);
 	}
 	else
 	{
@@ -58,7 +59,7 @@ static int	find_pos(t_list **stack_a)
 }
 
 void	selection_sort(t_list **stack_a, t_list **stack_b,
-		struct bench_struct *op_total)
+		t_bench *op_total)
 {
 	int	stack_size;
 	int	pos_temp;
@@ -68,7 +69,7 @@ void	selection_sort(t_list **stack_a, t_list **stack_b,
 	{
 		stack_size = ft_lstsize(*stack_a);
 		pos_temp = find_pos(stack_a);
-		rotate_direction(stack_a, stack_size, pos_temp);
+		rotate_direction(stack_a, stack_size, pos_temp, op_total);
 		push(stack_a, stack_b, 'b', op_total);
 		stack_size--;
 	}

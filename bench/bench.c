@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 23:36:15 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/09 23:51:55 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 11:10:10 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../libft/includes/libft.h"
 #include "../includes/bench.h"
 
-void init_bench_struct(struct bench_struct *op_total)
+void init_bench_struct(t_bench *op_total)
 {
     op_total->pa = 0;
     op_total->pb = 0;
