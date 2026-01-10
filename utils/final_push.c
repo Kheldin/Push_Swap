@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   final_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 21:24:40 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/09 23:58:37 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 13:12:21 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 // }
 
 void	final_push_selection(t_list **stack_a, t_list **stack_b,
-		struct bench_struct *op_total)
+		t_bench *op_total)
 {
 	int	stack_size;
 

@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 21:35:14 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 11:41:05 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 13:09:38 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	reverse_rotate(t_list **node, char stack, t_bench *op_total, int is_rr)
 	handle_rrr_bench(stack, op_total, is_rr);
 }
 
-void	reverse_rotate_rr(t_list **node_a, t_list **node_b, t_bench *op_total, int is_rr)
+void	reverse_rotate_rr(t_list **node_a, t_list **node_b, t_bench *op_total)
 {
 	reverse_rotate(node_a, ' ', op_total, 1);
 	reverse_rotate(node_b, ' ', op_total, 1);

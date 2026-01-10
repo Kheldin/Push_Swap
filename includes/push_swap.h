@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 11:44:32 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 13:12:56 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,28 @@ void	rotate(t_list **node, char stack, t_bench *op_total, int is_rr);
 void	rotate_rr(t_list **node_a, t_list **node_b, t_bench *op_total);
 void	reverse_rotate(t_list **node, char stack,
 	t_bench *op_total, int is_rr);
-void	reverse_rotate_rr(t_list **node_a, t_list **node_b,
-	t_bench *op_total, int is_rr);
+void	reverse_rotate_rr(t_list **node_a, t_list **node_b, t_bench *op_total);
+
 void	push(t_list **first_a, t_list **first_b, char stack,
 		t_bench *op_total);
 
 void	ft_print_stacks(t_list *stack_a, t_list *stack_b);
 
-void	insertion_sort(t_list **stack_a, t_list **stack_b);
+//void	insertion_sort(t_list **stack_a, t_list **stack_b);
 void	selection_sort(t_list **stack_a, t_list **stack_b,
 		t_bench *op_total);
-void	selection_sort_chunk(t_list **stack_a, t_list **stack_b);
+void	selection_sort_chunk(t_list **stack_a,
+	t_list **stack_b, t_bench *op_total);
 
 // void	final_push_insertion(t_list **stack_a, t_list **stack_b);
 void	final_push_selection(t_list **stack_a, t_list **stack_b,
-			t_bench *op_total);
+		t_bench *op_total);
 
 void	chunk_sort(t_list **stack_a, t_list **stack_b,
 			t_bench *op_total);
 void	get_indexs(t_list **stack_a);
 int		itoa_binary(int n);
 
-void	radix_sort(t_list **stack_a, t_list **stack_b);
+//void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);
 
 #endif

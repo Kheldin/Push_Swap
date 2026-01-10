@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:24:29 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 11:36:40 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 13:13:30 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,5 @@ void	chunk_sort(t_list **stack_a, t_list **stack_b,
 		push(stack_a, stack_b, 'b', op_total);
 		size--;
 	}
-	selection_sort_chunk(stack_a, stack_b);
+	selection_sort_chunk(stack_a, stack_b, op_total);
 }
