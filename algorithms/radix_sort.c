@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:11:48 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 19:32:12 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 22:24:11 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,30 @@ static void	shift(t_list **stack_a)
 	current = *stack_a;
 	while (current)
 	{
-		current->index = current->index >> 1;
+		current->index >>= 1;
 		current = current->next;
 	}
+}
+
+int	find_max(t_list **stack_a)
+{
+	int		max;
+	int		value;
+	t_list	*current;
+
+	current = *stack_a;
+	max = 0;
+	while (current)
+	{
+		value = itoa_binary(current->index);
+		if (value > max)
+		{
+			ft_printf("New Max index is %d\n", current->index);
+			max = value;
+		}
+		current = current->next;
+	}
+	return (max);
 }
 
 void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
@@ -47,29 +68,22 @@ void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 	
 	current = *stack_a;
     count = 0;
-	max = (itoa_binary(current->index));
-	while (current)
-	{
-		ft_printf("Itoa Binary return = %d\n", max);
-		if (itoa_binary(current->index) > max)
-			max = itoa_binary(current->index);
-		current = current->next;
-	}
+	max = find_max(stack_a);
 	ft_printf(" === MAX = %d\n", max);
 	current = *stack_a;
-	// Push 0 bit to B stack
 	while (count < max)
 	{
 		stack_size = ft_lstsize(*stack_a);
 		while (current && stack_size)
 		{
-			if (current->index & 0) 
+			if ((current->index & 1) == 0) 
 			{
 				push(stack_a, stack_b, 'b', op_total);
-				current = current->next;
-			}
+			} 
 			else
 				rotate(stack_a, 'a', op_total, 0);
+			current = *stack_a;
+			stack_size--; // Peut etre mettre ca dans le if au dessus ? 
 		}
 		push_back(stack_a, stack_b, op_total);
 		shift(stack_a);

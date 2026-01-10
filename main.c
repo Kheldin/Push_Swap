@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 19:27:29 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 22:07:32 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_SUCCESS);
 	}
 	op_total = init_bench_struct();
-	// get_indexs(&stack_a);
+	 get_indexs(&stack_a);
 	// insertion_sort(&stack_a, &stack_b);
 	// rotate(&stack_a, 'a');
 	// selection_sort(&stack_a, &stack_b, op_total);
