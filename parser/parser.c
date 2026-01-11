@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 23:24:21 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/11 14:20:05 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,21 @@ int	valid_arg(char *av, t_flags *flags)
 	int	i;
 
 	i = 0;
-	if (ft_strncmp(av, flags->simple, 8) == 0)
+	if (ft_strncmp(flags->simple, av, ft_strlen(av)) == 0)
+	{
+		flags->flag_int = 1;
 		return (1);
-	if (ft_strncmp(av, flags->medium, 8) == 0)
+	}
+	if (ft_strncmp(av, flags->medium, ft_strlen(av)) == 0)
+	{
+		flags->flag_int = 10;
 		return (1);
-	if (ft_strncmp(av, flags->complex, 8) == 0)
+	}
+	if (ft_strncmp(av, flags->complex, ft_strlen(av)) == 0)
+	{
+		flags->flag_int = 100;
 		return (1);
+	}
 	while (av[i])
 	{
 		if (!ft_isdigit(av[i]))
@@ -112,10 +121,8 @@ t_list	*input_parser(int ac, char *av[], t_flags *flags)
 	else
 		buffer = multiple_arg_parser(ac, av, flags);
 	
-	find_flags(ac, av, flags);
 	if (!buffer)
 		return (NULL);
-	find_flags(ac, av, flags);
 	stack_a = create_list(buffer);
 	ft_free_buffer(buffer);
 	return (stack_a);

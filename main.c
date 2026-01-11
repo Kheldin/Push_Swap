@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 13:50:07 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/11 14:24:23 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int	main(int ac, char *av[])
 		return (EXIT_SUCCESS);
 	}
 	op_total = init_bench_struct();
+	ft_printf("flag_int = %d\n", flags->flag_int);
 	// ft_printf("stack_b->content = %d\n", stack_b->content);
+	//selection_sort(&stack_a, &stack_b, op_total);
 	//selection_sort(&stack_a, &stack_b, op_total);
 	if (flags->flag_int == -1)
 		ft_printf("faire adaptive\n");

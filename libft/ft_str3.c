@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:04:47 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 21:32:06 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/11 13:56:50 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	total_len = ft_strlen(s1) + ft_strlen(s2);
+	total_len = ft_strlen(s1) + ft_strlen(s2) + 2;
 	res = ft_calloc(total_len + 1, sizeof(char));
 	if (!res)
 		return (NULL);
@@ -57,10 +57,13 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	while (s1[i])
 		res[j++] = s1[i++];
+	res[j] = ' ';
 	i = 0;
 	while (s2[i])
 		res[j++] = s2[i++];
-	res[j] = '\0';
+	res[j] = ' ';
+	res[j + 1] = '\0';
+	ft_printf("res = %s\n", res);
 	return (res);
 }
 

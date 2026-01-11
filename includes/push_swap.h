@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 13:45:39 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/11 14:24:40 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);
 
 float		get_disorder(t_list **stack_a);
 // void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);
-void		find_flags(int ac, char **av, t_flags *flags);
 t_flags		*init_flags_struct(void);
 
 #endif
