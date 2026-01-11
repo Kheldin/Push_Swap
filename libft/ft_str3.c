@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:04:47 by kacherch          #+#    #+#             */
-/*   Updated: 2025/11/05 18:32:12 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/10 21:32:06 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, size_t len)
 {
+	unsigned int start;
 	char	*res;
 	size_t	i;
 	size_t	s_len;
 
+	start = 0;
 	if (!s)
 		return (NULL);
 	s_len = ft_strlen(s);
@@ -38,7 +40,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (res);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char			*res;
 	unsigned int	i;

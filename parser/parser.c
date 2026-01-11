@@ -6,61 +6,67 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/09 13:38:19 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 23:24:21 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-int	valid_arg(char *argv)
+int	valid_arg(char *av, t_flags *flags)
 {
 	int	i;
 
 	i = 0;
-	while (argv[i])
+	if (ft_strncmp(av, flags->simple, 8) == 0)
+		return (1);
+	if (ft_strncmp(av, flags->medium, 8) == 0)
+		return (1);
+	if (ft_strncmp(av, flags->complex, 8) == 0)
+		return (1);
+	while (av[i])
 	{
-		if (!ft_isdigit(argv[i]))
-		{
+		if (!ft_isdigit(av[i]))
 			return (0);
-		}
 		i++;
 	}
 	return (1);
 }
 
-char	**one_arg_parser(char **argv)
+char	**one_arg_parser(char **av, t_flags *flags)
 {
 	int		i;
 	char	**buffer;
 
 	i = 0;
-	buffer = ft_split(argv[1], ' ');
+	buffer = ft_split(av[1], ' ');
 	if (!buffer)
 		return (NULL);
 	while (buffer[i])
 	{
-		if (!valid_arg(buffer[i]))
+		if (!valid_arg(buffer[i], flags))
 			return (ft_free_buffer(buffer), NULL);
 		i++;
 	}
 	return (buffer);
 }
 
-char	**multiple_arg_parser(int argc, char **argv)
+char	**multiple_arg_parser(int ac, char **av, t_flags *flags)
 {
 	char	**buffer;
 	int		i;
 
 	i = 1;
-	buffer = ft_calloc(argc + 1, sizeof(char *));
+	buffer = ft_calloc(ac + 1, sizeof(char *));
 	if (!buffer)
 		return (NULL);
-	while (argv[i])
+	while (av[i])
 	{
-		if (!valid_arg(argv[i]))
+		if (!valid_arg(av[i], flags))
+		{
 			return (ft_free_buffer(buffer), NULL);
-		buffer[i - 1] = ft_strdup(argv[i]);
+		}
+		buffer[i - 1] = ft_strdup(av[i]);
 		if (!buffer[i - 1])
 			return (ft_free_buffer(buffer), NULL);
 		i++;
@@ -80,29 +86,36 @@ t_list	*create_list(char **buffer)
 	number = 0;
 	while (buffer[i])
 	{
-		number = ft_atoi(buffer[i]);
-		if (!stack_a)
-			stack_a = ft_lstnew(number);
-		else
-			ft_lstadd_back(&stack_a, ft_lstnew(number));
+		if (ft_isdigit(buffer[i][0]) == 1)
+		{
+			number = ft_atoi(buffer[i]);
+			if (!stack_a)
+				stack_a = ft_lstnew(number);
+			else
+				ft_lstadd_back(&stack_a, ft_lstnew(number));
+		}
 		i++;
 	}
 	return (stack_a);
 }
 
-t_list	*input_parser(int argc, char *argv[])
+t_list	*input_parser(int ac, char *av[], t_flags *flags)
 {
 	t_list	*stack_a;
 	char	**buffer;
 
+	(void)flags;
 	stack_a = NULL;
 	buffer = NULL;
-	if (argc == 2)
-		buffer = one_arg_parser(argv);
+	if (ac == 2)
+		buffer = one_arg_parser(av, flags);
 	else
-		buffer = multiple_arg_parser(argc, argv);
+		buffer = multiple_arg_parser(ac, av, flags);
+	
+	find_flags(ac, av, flags);
 	if (!buffer)
 		return (NULL);
+	find_flags(ac, av, flags);
 	stack_a = create_list(buffer);
 	ft_free_buffer(buffer);
 	return (stack_a);

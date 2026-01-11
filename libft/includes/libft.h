@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:04:58 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/09 13:41:48 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/10 22:08:19 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int					ft_isprint(int c);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dsize);
-int					ft_strncmp(const char *s1, const char *s2, size_t n);
-char				*ft_strnstr(const char *haystack, const char *needle,
+int					ft_strncmp(char *s1, char *s2, size_t n);
+char				*ft_strnstr(char *haystack, char *needle,
 						size_t len);
 
 int					ft_tolower(int c);
@@ -58,8 +58,8 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
-char				*ft_substr(char const *s, unsigned int start, size_t len);
-char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_substr(char *s, size_t len);
+char				*ft_strjoin(char *s1, char *s2);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 char				*ft_strtrim(char const *s1, char const *set);
