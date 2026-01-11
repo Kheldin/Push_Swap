@@ -6,11 +6,11 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:41 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 21:18:03 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/11 14:53:38 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 float	get_disorder(t_list **stack_a)
 {

@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 14:24:23 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/11 14:54:58 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int ac, char *av[])
 	//selection_sort(&stack_a, &stack_b, op_total);
 	//selection_sort(&stack_a, &stack_b, op_total);
 	if (flags->flag_int == -1)
-		ft_printf("faire adaptive\n");
+		choose_algo(&stack_a, &stack_b, op_total, disorder);
 	else if (flags->flag_int == 1)
 		selection_sort(&stack_a, &stack_b, op_total);
 	else if (flags->flag_int == 10)
@@ -51,7 +51,6 @@ int	main(int ac, char *av[])
 		radix_sort(&stack_a, &stack_b, op_total);
 	// ft_print_stacks(stack_a, stack_b);
 	// ft_printf("%d\n", itoa_binary(11));
-	ft_printf("FLAG = %d\n", flags->flag_int);
 	ft_lstclear(&stack_a);
 	free(op_total);
 	return (EXIT_SUCCESS);
