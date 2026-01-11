@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 14:24:40 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/11 14:38:00 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void		push(t_list **first_a, t_list **first_b, char stack,
 void		ft_print_stacks(t_list *stack_a, t_list *stack_b);
 
 // algos
+
 void		selection_sort(t_list **stack_a, t_list **stack_b,
 				t_bench *op_total);
 void		selection_sort_chunk(t_list **stack_a, t_list **stack_b,
@@ -59,7 +60,7 @@ void		final_push_selection(t_list **stack_a, t_list **stack_b,
 void		chunk_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);
 void		get_indexs(t_list **stack_a);
 int			itoa_binary(int n);
-void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);
+void		radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);
 
 float		get_disorder(t_list **stack_a);
 // void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);

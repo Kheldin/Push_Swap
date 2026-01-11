@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:11:48 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/11 12:15:06 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/11 14:26:43 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void  push_back(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 	current_b = *stack_b;
 	while (current_b)
 	{
-		//ft_printf("Push back Current = %d index = %d  ", current_b->content, current_b->index);
 		push(stack_a, stack_b, 'a', op_total);
 		current_b = *stack_b;
 	}
@@ -57,32 +56,23 @@ int	find_max(t_list **stack_a)
 
 void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 {
-	int	max;
+	int		max;
 	int		stack_size;
 	t_list	*current;
 
-	
 	current = *stack_a;
 	max = find_max(stack_a);
-	//ft_printf("MAX lenght Binary = %d\n\n", max);
 	current = *stack_a;
 	while (max)
 	{
-		//ft_printf("\n=== NEXT ITERATION ===\n");
 		stack_size = ft_lstsize(*stack_a);
 		current = *stack_a;
 		while (current && stack_size)
 		{
 			if ((current->index & 1) == 0) 
-			{
-				//ft_printf("PUSH B Current = %d index = %d  ", current->content, current->index);
 				push(stack_a, stack_b, 'b', op_total);
-			} 
 			else
-			{
-				//ft_printf("ROTATE A Current = %d index = %d  ", current->content, current->index);
 				rotate(stack_a, 'a', op_total, 0);
-			}
 			stack_size--;
 			current = *stack_a;
 		}

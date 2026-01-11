@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 14:20:05 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/11 14:31:37 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,13 @@ int	valid_arg(char *av, t_flags *flags)
 
 	i = 0;
 	if (ft_strncmp(flags->simple, av, ft_strlen(av)) == 0)
-	{
 		flags->flag_int = 1;
-		return (1);
-	}
-	if (ft_strncmp(av, flags->medium, ft_strlen(av)) == 0)
-	{
+	else if (ft_strncmp(av, flags->medium, ft_strlen(av)) == 0)
 		flags->flag_int = 10;
-		return (1);
-	}
-	if (ft_strncmp(av, flags->complex, ft_strlen(av)) == 0)
-	{
+	else if (ft_strncmp(av, flags->complex, ft_strlen(av)) == 0)
 		flags->flag_int = 100;
+	if (flags->flag_int > 0)
 		return (1);
-	}
 	while (av[i])
 	{
 		if (!ft_isdigit(av[i]))
