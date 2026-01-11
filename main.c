@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 14:54:58 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/11 15:40:43 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,10 @@ int	main(int ac, char *av[])
 		ft_lstclear(&stack_a);
 		return (EXIT_SUCCESS);
 	}
+	get_indexs(&stack_a);
 	op_total = init_bench_struct();
-	ft_printf("flag_int = %d\n", flags->flag_int);
-	// ft_printf("stack_b->content = %d\n", stack_b->content);
-	//selection_sort(&stack_a, &stack_b, op_total);
-	//selection_sort(&stack_a, &stack_b, op_total);
+	//ft_print_stacks(stack_a, stack_b);
+	//ft_printf("\n\n");
 	if (flags->flag_int == -1)
 		choose_algo(&stack_a, &stack_b, op_total, disorder);
 	else if (flags->flag_int == 1)
@@ -49,8 +48,7 @@ int	main(int ac, char *av[])
 		chunk_sort(&stack_a, &stack_b, op_total);
 	else if (flags->flag_int == 100)
 		radix_sort(&stack_a, &stack_b, op_total);
-	// ft_print_stacks(stack_a, stack_b);
-	// ft_printf("%d\n", itoa_binary(11));
+	//ft_print_stacks(stack_a, stack_b);
 	ft_lstclear(&stack_a);
 	free(op_total);
 	return (EXIT_SUCCESS);

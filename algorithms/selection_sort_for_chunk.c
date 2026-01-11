@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort_for_chunk.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:57:13 by rogard-anto       #+#    #+#             */
-/*   Updated: 2026/01/10 11:35:55 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/11 18:09:20 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	find_pos_chunk(t_list **stack_a)
 	temp = current;
 	while (current)
 	{
-		if ((current)->content > temp->content)
+		if (current->index > temp->index)
 		{
 			temp = current;
 			pos_temp = position;
@@ -55,6 +55,7 @@ static int	find_pos_chunk(t_list **stack_a)
 		current = current->next;
 		position++;
 	}
+	// ft_printf("temp->index = %d\n", temp->index);
 	return (pos_temp);
 }
 
