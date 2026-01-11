@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 13:45:02 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/11 13:50:07 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int ac, char *av[])
 	}
 	op_total = init_bench_struct();
 	// ft_printf("stack_b->content = %d\n", stack_b->content);
-	selection_sort(&stack_a, &stack_b, op_total);
+	//selection_sort(&stack_a, &stack_b, op_total);
 	if (flags->flag_int == -1)
 		ft_printf("faire adaptive\n");
 	else if (flags->flag_int == 1)
@@ -46,9 +46,10 @@ int	main(int ac, char *av[])
 	else if (flags->flag_int == 10)
 		chunk_sort(&stack_a, &stack_b, op_total);
 	else if (flags->flag_int == 100)
-		//radix_sort;
+		radix_sort(&stack_a, &stack_b, op_total);
 	// ft_print_stacks(stack_a, stack_b);
 	// ft_printf("%d\n", itoa_binary(11));
+	ft_printf("FLAG = %d\n", flags->flag_int);
 	ft_lstclear(&stack_a);
 	free(op_total);
 	return (EXIT_SUCCESS);
