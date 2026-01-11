@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 22:45:46 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/11 12:15:22 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	main(int argc, char *argv[])
 	//print_bench(op_total, disorder);
 	// ft_printf("pa : %d\n", op_total->pa);
 	// chunk_sort(&stack_a, &stack_b, op_total);
-	write(1, "\n", 1);
-	ft_print_stacks(stack_a, stack_b);
+	//write(1, "\n", 1);
+	//ft_print_stacks(stack_a, stack_b);
 	// ft_printf("%d\n", itoa_binary(11));
 	ft_lstclear(&stack_a);
 	free(op_total);
