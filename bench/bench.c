@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 23:36:15 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 19:11:40 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/11 13:45:25 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_itoa_disorder(int n)
 	char	*res = NULL;
 	int		len;
 	long	nb;
-	int i;
+	int	i;
 
 	i = 0;
 	len = 6;

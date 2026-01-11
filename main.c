@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 23:29:47 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/11 13:45:02 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char *av[])
 	stack_b = NULL;	
 	if (!stack_a)
 	{
-		write(1, "Error\n", 7);
+		write(2, "Error\n", 7);
 		return (EXIT_FAILURE);
 	}
 	disorder = get_disorder(&stack_a);
