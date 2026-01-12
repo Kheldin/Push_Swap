@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/12 22:51:33 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 23:01:48 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	valid_arg(char *av, t_flags *flags)
 {
 	int	i;
-	int temp;
+	int	temp;
 
 	temp = flags->flag_int;
 	i = 0;

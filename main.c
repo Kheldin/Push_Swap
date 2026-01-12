@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/12 22:57:17 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 23:02:04 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "includes/push_swap.h"
 #include "libft/includes/libft.h"
 
-void ft_free_all(t_flags *flags)
+void	ft_free_all(t_flags *flags)
 {
 	free(flags->simple);
 	free(flags->medium);
@@ -62,7 +62,6 @@ int	main(int ac, char *av[])
 	get_indexs(&stack_a);
 	op_total = init_bench_struct();
 	do_algorithms(flags, &stack_a, &stack_b, op_total);
-	// ft_print_stacks(stack_a, stack_b);
 	ft_lstclear(&stack_a);
 	free(op_total);
 	ft_free_all(flags);

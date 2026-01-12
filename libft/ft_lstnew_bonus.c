@@ -6,12 +6,12 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:03:58 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/12 22:53:42 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 23:01:37 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "includes/libft.h"
+#include <stdlib.h>
 
 t_list	*ft_lstnew(int content)
 {
@@ -34,8 +34,8 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 
 int	ft_lstsize(t_list *lst)
 {
-	int	count;
-	t_list *temp;
+	int		count;
+	t_list	*temp;
 
 	temp = lst;
 	count = 0;
