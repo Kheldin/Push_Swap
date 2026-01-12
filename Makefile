@@ -8,13 +8,14 @@ DEPDIR		:= .deps
 INCDIR		:= includes
 BUILDDIR	:= build
 
-SRCFILES	:= utils/disorder.c main.c parser/parser.c parser/ft_free_buffer.c \
+SRCFILES	:= parser/parser.c parser/ft_free_buffer.c \
 			   operations/op_push.c operations/op_swap.c operations/op_rotate.c \
-			   algorithms/insertion_sort.c algorithms/selection_sort.c \
-			   algorithms/chunk_sort.c utils/final_push.c utils/get_indexs.c\
-			   utils/print_stacks.c algorithms/selection_sort_for_chunk.c \
-			   bench/bench_utils.c utils/itoa_binary.c utils/init_flags_struct.c\
-			   bench/bench.c algorithms/radix_sort.c utils/choose_algo.c\
+			   algorithms/selection_sort.c algorithms/chunk_sort.c \
+			   algorithms/selection_sort_for_chunk.c algorithms/radix_sort.c \
+			   utils/final_push.c utils/get_indexs.c utils/disorder.c \
+			   utils/print_stacks.c utils/itoa_binary.c utils/init_flags_struct.c \
+			   utils/choose_algo.c bench/bench_utils.c bench/bench.c \
+			   main.c \
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h

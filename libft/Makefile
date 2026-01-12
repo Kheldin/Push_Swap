@@ -8,8 +8,8 @@ DEPDIR		:= $(SRCDIR)/.deps
 INCDIR		:= includes
 BUILDDIR	:= build
 
-SRCFILES	:= ft_fds.c ft_alloc.c ft_is.c ft_itoa.c ft_split.c ft_str.c ft_str2.c \
-			ft_str3.c ft_strtrim.c ft_utils.c ft_mem.c \
+SRCFILES	:= ft_fds.c ft_alloc.c ft_is.c ft_split.c ft_str.c ft_str2.c \
+			ft_str3.c ft_utils.c \
 			ft_printf.c do_operation.c operations.c \
 			ft_lstnew_bonus.c ft_lstfree_bonus.c
 
