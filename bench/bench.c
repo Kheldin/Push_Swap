@@ -3,52 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 23:36:15 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/11 13:45:25 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/12 21:46:02 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/bench.h"
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
-
-char	*ft_itoa_disorder(int n)
-{
-	char	*res = NULL;
-	int		len;
-	long	nb;
-	int	i;
-
-	i = 0;
-	len = 6;
-	if (n == 10000)
-	{
-		ft_putstr_fd("100.00%", 2);
-		return (NULL);
-	}
-	res = ft_calloc(len + 1, sizeof(char));
-	if (!res)
-		return (NULL);
-	nb = n;
-	res[len] = '\0';
-	res[--len] = '%';
-	if (nb == 0)
-		res[0] = '0';
-	while (nb > 0)
-	{
-		if (i == 2)
-			res[--len] = '.';
-		else
-		{
-			res[--len] = (nb % 10) + '0';
-			nb /= 10;
-		}
-		i++;
-	}
-	return (res);
-}
 
 t_bench	*init_bench_struct(void)
 {
@@ -96,12 +60,32 @@ void	print_bench_bis(t_bench *op_total)
 	ft_putnbr_fd(op_total->rrb, 2);
 	ft_putstr_fd(" rrr: ", 2);
 	ft_putnbr_fd(op_total->rrr, 2);
+	ft_putendl_fd("", 2);
 }
 
-void	print_bench(t_bench *op_total, float disorder)
+void	print_strategy(int algo, int flag_int)
 {
-	int	tot;
-	char *str;
+	if (flag_int == 1)
+		ft_putendl_fd("Simple / O(n²)", 2);
+	else if (flag_int == 10)
+		ft_putendl_fd("Medium / O(n√n)", 2);
+	else if (flag_int == 100)
+		ft_putendl_fd("Complex / O(n log n)", 2);
+	else
+	{
+		if (algo == 1)
+			ft_putendl_fd("Adaptive / O(n²)", 2);
+		else if (algo == 2)
+			ft_putendl_fd("Adaptive / O(n√n)", 2);
+		else
+			ft_putendl_fd("Adaptive / O(n log n)", 2);
+	}
+}
+
+void	print_bench(t_bench *op_total, float disorder, int flag_int, int algo)
+{
+	int		tot;
+	char	*str;
 
 	tot = op_total->sa + op_total->sb + op_total->ss + op_total->ra
 		+ op_total->rb + op_total->rr + op_total->rra + op_total->rrb
@@ -114,7 +98,7 @@ void	print_bench(t_bench *op_total, float disorder)
 		free(str);
 	}
 	ft_putstr_fd("[bench] strategy: ", 2);
-	ft_putendl_fd("", 2);
+	print_strategy(algo, flag_int);
 	ft_putstr_fd("[bench] total_ops: ", 2);
 	ft_putnbr_fd(tot, 2);
 	ft_putendl_fd("", 2);

@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:04:47 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 13:56:50 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 21:46:19 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_substr(char *s, size_t len)
 {
-	unsigned int start;
-	char	*res;
-	size_t	i;
-	size_t	s_len;
+	unsigned int	start;
+	char			*res;
+	size_t			i;
+	size_t			s_len;
 
 	start = 0;
 	if (!s)

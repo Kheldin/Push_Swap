@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 14:31:37 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 22:16:04 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,22 @@
 int	valid_arg(char *av, t_flags *flags)
 {
 	int	i;
+	int temp;
 
+	temp = flags->flag_int;
 	i = 0;
+	if (ft_strncmp(flags->bench, av, ft_strlen(av)) == 0)
+	{
+		flags->bench_int = 1;
+		return (1);
+	}
 	if (ft_strncmp(flags->simple, av, ft_strlen(av)) == 0)
-		flags->flag_int = 1;
+		flags->flag_int += 2;
 	else if (ft_strncmp(av, flags->medium, ft_strlen(av)) == 0)
-		flags->flag_int = 10;
+		flags->flag_int += 11;
 	else if (ft_strncmp(av, flags->complex, ft_strlen(av)) == 0)
-		flags->flag_int = 100;
-	if (flags->flag_int > 0)
+		flags->flag_int += 101;
+	if (flags->flag_int != temp)
 		return (1);
 	while (av[i])
 	{
@@ -82,6 +89,7 @@ t_list	*create_list(char **buffer)
 	int		i;
 	int		number;
 	t_list	*stack_a;
+	t_list	*node;
 
 	i = 0;
 	stack_a = NULL;
@@ -91,10 +99,11 @@ t_list	*create_list(char **buffer)
 		if (ft_isdigit(buffer[i][0]) == 1)
 		{
 			number = ft_atoi(buffer[i]);
+			node = ft_lstnew(number);
 			if (!stack_a)
-				stack_a = ft_lstnew(number);
+				stack_a = node;
 			else
-				ft_lstadd_back(&stack_a, ft_lstnew(number));
+				ft_lstadd_back(&stack_a, node);
 		}
 		i++;
 	}
@@ -113,7 +122,6 @@ t_list	*input_parser(int ac, char *av[], t_flags *flags)
 		buffer = one_arg_parser(av, flags);
 	else
 		buffer = multiple_arg_parser(ac, av, flags);
-	
 	if (!buffer)
 		return (NULL);
 	stack_a = create_list(buffer);

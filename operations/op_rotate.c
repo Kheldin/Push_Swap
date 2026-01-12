@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 21:35:14 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 13:09:38 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/12 21:44:31 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
 #include "../includes/bench.h"
+#include "../libft/includes/libft.h"
 
 void	rotate(t_list **node, char stack, t_bench *op_total, int is_rr)
 {
@@ -61,7 +61,7 @@ static void	handle_rrr_bench(char stack, t_bench *op_total, int is_rr)
 		{
 			write(1, "rrb\n", 4);
 			op_total->rrb += 1;
-		}	
+		}
 	}
 	else
 	{

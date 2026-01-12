@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:41 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 14:53:38 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 21:45:52 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 float	get_disorder(t_list **stack_a)
 {
-	t_list *current;
-	t_list *current_bis;
-	float mistakes;
-	float total_pair;
+	t_list	*current;
+	t_list	*current_bis;
+	float	mistakes;
+	float	total_pair;
 
 	current = *stack_a;
 	mistakes = 0;

@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 15:39:55 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 22:06:52 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@ typedef struct s_flags
 	char	*simple;
 	char	*medium;
 	char	*complex;
+	char	*bench;
 	int		flag_int;
+	int		bench_int;
 }			t_flags;
 
 // parser
+
 int			valid_arg(char *argv, t_flags *flags);
 void		ft_free_buffer(char **buffer);
 char		**one_arg_parser(char **argv, t_flags *flags);
@@ -55,7 +58,7 @@ void		radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total);
 
 // utils
 
-void		choose_algo(t_list **stack_a, t_list **stack_b, t_bench *op_total,
+int			choose_algo(t_list **stack_a, t_list **stack_b, t_bench *op_total,
 				float disorder);
 float		get_disorder(t_list **stack_a);
 t_flags		*init_flags_struct(void);
@@ -64,5 +67,6 @@ void		ft_print_stacks(t_list *stack_a, t_list *stack_b);
 int			itoa_binary(int n);
 void		final_push_selection(t_list **stack_a, t_list **stack_b,
 				t_bench *op_total);
+char		*ft_itoa_disorder(int n);
 
 #endif

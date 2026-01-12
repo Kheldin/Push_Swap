@@ -1,55 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   itoa_binary.c                                      :+:      :+:    :+:   */
+/*   bench_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 19:24:54 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/12 21:45:27 by anrogard         ###   ########.fr       */
+/*   Created: 2026/01/12 21:37:09 by anrogard          #+#    #+#             */
+/*   Updated: 2026/01/12 21:46:09 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 
-static int	count_digits(int n)
+static char	*make_res(int len, long nb, char *res, int i)
 {
-	int		count;
-	long	nb;
-
-	nb = n;
-	count = 0;
-	if (nb == 0)
-		return (1);
 	while (nb > 0)
 	{
-		count++;
-		nb /= 2;
+		if (i == 2)
+			res[--len] = '.';
+		else
+		{
+			res[--len] = (nb % 10) + '0';
+			nb /= 10;
+		}
+		i++;
 	}
-	return (count);
+	return (res);
 }
 
-int	itoa_binary(int n)
+char	*ft_itoa_disorder(int n)
 {
 	char	*res;
 	int		len;
 	long	nb;
-	size_t	size;
+	int		i;
 
-	len = count_digits(n);
+	res = NULL;
+	i = 0;
+	len = 6;
+	if (n == 10000)
+	{
+		ft_putstr_fd("100.00%", 2);
+		return (NULL);
+	}
 	res = ft_calloc(len + 1, sizeof(char));
 	if (!res)
-		return (-1);
+		return (NULL);
 	nb = n;
 	res[len] = '\0';
+	res[--len] = '%';
 	if (nb == 0)
 		res[0] = '0';
-	while (nb > 0)
-	{
-		res[--len] = (nb % 2) + '0';
-		nb /= 2;
-	}
-	size = ft_strlen(res);
-	free(res);
-	return (size);
+	return (make_res(len, nb, res, i));
 }

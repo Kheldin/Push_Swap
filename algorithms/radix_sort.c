@@ -6,16 +6,17 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:11:48 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/11 14:26:43 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 21:42:43 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-static void  push_back(t_list **stack_a, t_list **stack_b, t_bench *op_total)
+static void	push_back(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 {
-    t_list	*current_b;
+	t_list	*current_b;
+
 	current_b = *stack_b;
 	while (current_b)
 	{
@@ -69,7 +70,7 @@ void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 		current = *stack_a;
 		while (current && stack_size)
 		{
-			if ((current->index & 1) == 0) 
+			if ((current->index & 1) == 0)
 				push(stack_a, stack_b, 'b', op_total);
 			else
 				rotate(stack_a, 'a', op_total, 0);

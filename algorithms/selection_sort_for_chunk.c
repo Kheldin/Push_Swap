@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:57:13 by rogard-anto       #+#    #+#             */
-/*   Updated: 2026/01/11 18:09:20 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 21:44:04 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ static int	find_pos_chunk(t_list **stack_a)
 		current = current->next;
 		position++;
 	}
-	// ft_printf("temp->index = %d\n", temp->index);
 	return (pos_temp);
 }
 
-void	selection_sort_chunk(t_list **stack_a, t_list **stack_b, t_bench *op_total)
+void	selection_sort_chunk(t_list **stack_a, t_list **stack_b,
+		t_bench *op_total)
 {
 	int	stack_size;
 	int	pos_temp;

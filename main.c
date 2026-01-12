@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/11 15:40:43 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 22:09:14 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,57 @@
 #include "includes/push_swap.h"
 #include "libft/includes/libft.h"
 
-int	main(int ac, char *av[])
+void ft_free_all(t_flags *flags)
 {
-	t_list *stack_a;
-	t_list *stack_b;
-	t_bench	*op_total;
-	t_flags *flags;
-	float disorder;
+	free(flags->simple);
+	free(flags->medium);
+	free(flags->complex);
+	free(flags->bench);
+	free(flags);
+}
 
-	flags = init_flags_struct();
-	stack_a = input_parser(ac, av, flags);
-	stack_b = NULL;	
-	if (!stack_a)
-	{
-		write(2, "Error\n", 7);
-		return (EXIT_FAILURE);
-	}
+static void	do_algorithms(t_flags *flags, t_list *stack_a, t_list *stack_b,
+		t_bench *op_total)
+{
+	float	disorder;
+	int		algo;
+
+	algo = 0;
 	disorder = get_disorder(&stack_a);
-	if (disorder == -1)
-	{
-		ft_lstclear(&stack_a);
-		return (EXIT_SUCCESS);
-	}
-	get_indexs(&stack_a);
-	op_total = init_bench_struct();
-	//ft_print_stacks(stack_a, stack_b);
-	//ft_printf("\n\n");
 	if (flags->flag_int == -1)
-		choose_algo(&stack_a, &stack_b, op_total, disorder);
+		algo = choose_algo(&stack_a, &stack_b, op_total, disorder);
 	else if (flags->flag_int == 1)
 		selection_sort(&stack_a, &stack_b, op_total);
 	else if (flags->flag_int == 10)
 		chunk_sort(&stack_a, &stack_b, op_total);
 	else if (flags->flag_int == 100)
 		radix_sort(&stack_a, &stack_b, op_total);
-	//ft_print_stacks(stack_a, stack_b);
+	if (flags->bench_int == 1)
+		print_bench(op_total, disorder, flags->flag_int, algo);
+}
+
+int	main(int ac, char *av[])
+{
+	t_list	*stack_a;
+	t_list	*stack_b;
+	t_bench	*op_total;
+	t_flags	*flags;
+
+	flags = init_flags_struct();
+	stack_a = input_parser(ac, av, flags);
+	if (!stack_a)
+	{
+		ft_free_all(flags);
+		write(2, "Error\n", 7);
+		return (EXIT_FAILURE);
+	}
+	stack_b = NULL;
+	get_indexs(&stack_a);
+	op_total = init_bench_struct();
+	do_algorithms(flags, stack_a, stack_b, op_total);
+	// ft_print_stacks(stack_a, stack_b);
 	ft_lstclear(&stack_a);
 	free(op_total);
+	ft_free_all(flags);
 	return (EXIT_SUCCESS);
 }

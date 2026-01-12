@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 15:55:15 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 11:44:14 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/12 21:44:21 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
 #include "../includes/bench.h"
-
+#include "../libft/includes/libft.h"
 
 void	swap(t_list *first, char stack, t_bench *op_total, int is_rr)
 {

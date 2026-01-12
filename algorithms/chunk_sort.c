@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:24:29 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/11 18:11:43 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 21:43:18 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,17 @@ int	ft_sqrt(int numbers)
 	return (n);
 }
 
-int	push_chunk(t_list **stack_a, t_list **stack_b, int limit,
-		t_bench *op_total)
+int	push_chunk(t_list **stack_a, t_list **stack_b, int limit, t_bench *op_total)
 {
 	int	i;
-	int j;
-	int size;
+	int	j;
+	int	size;
 
-	// ft_printf("limit == %d\n", limit);
 	size = ft_lstsize(*stack_a);
 	i = 0;
 	j = 0;
 	while (i < size)
 	{
-		// ft_printf("(*stack_a)->index == %d\n", (*stack_a)->index);
-		// ft_printf("limit == %d\n", limit);
 		if ((*stack_a)->index < limit)
 		{
 			push(stack_a, stack_b, 'b', op_total);
@@ -56,7 +52,7 @@ void	chunk_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 {
 	int	stack_a_size;
 	int	chunks;
-	int check;
+	int	check;
 	int	size;
 	int	i;
 
@@ -76,7 +72,5 @@ void	chunk_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 		push(stack_a, stack_b, 'b', op_total);
 		size--;
 	}
-	// ft_print_stacks(*stack_a, *stack_b);
-	selection_sort_chunk(stack_a, stack_b, op_total);	
-	// ft_print_stacks(*stack_a, *stack_b);
+	selection_sort_chunk(stack_a, stack_b, op_total);
 }
