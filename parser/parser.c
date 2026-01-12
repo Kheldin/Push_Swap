@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/12 22:16:04 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 22:51:33 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ t_list	*create_list(char **buffer)
 	int		i;
 	int		number;
 	t_list	*stack_a;
-	t_list	*node;
 
 	i = 0;
 	stack_a = NULL;
@@ -99,11 +98,10 @@ t_list	*create_list(char **buffer)
 		if (ft_isdigit(buffer[i][0]) == 1)
 		{
 			number = ft_atoi(buffer[i]);
-			node = ft_lstnew(number);
 			if (!stack_a)
-				stack_a = node;
+				stack_a = ft_lstnew(number);
 			else
-				ft_lstadd_back(&stack_a, node);
+				ft_lstadd_back(&stack_a, ft_lstnew(number));
 		}
 		i++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 18:49:53 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/10 11:18:13 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/12 22:37:57 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	push(t_list **first_a, t_list **first_b, char stack, t_bench *op_total)
 		write(1, "pa\n", 3);
 		op_total->pa += 1;
 	}
-	if (stack == 'b')
+	else if (stack == 'b')
 	{
 		if ((*first_a) == NULL)
 			return ;

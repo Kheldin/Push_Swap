@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/12 22:09:14 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/12 22:57:17 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ void ft_free_all(t_flags *flags)
 	free(flags);
 }
 
-static void	do_algorithms(t_flags *flags, t_list *stack_a, t_list *stack_b,
+static void	do_algorithms(t_flags *flags, t_list **stack_a, t_list **stack_b,
 		t_bench *op_total)
 {
 	float	disorder;
 	int		algo;
 
 	algo = 0;
-	disorder = get_disorder(&stack_a);
+	disorder = get_disorder(stack_a);
 	if (flags->flag_int == -1)
-		algo = choose_algo(&stack_a, &stack_b, op_total, disorder);
+		algo = choose_algo(stack_a, stack_b, op_total, disorder);
 	else if (flags->flag_int == 1)
-		selection_sort(&stack_a, &stack_b, op_total);
+		selection_sort(stack_a, stack_b, op_total);
 	else if (flags->flag_int == 10)
-		chunk_sort(&stack_a, &stack_b, op_total);
+		chunk_sort(stack_a, stack_b, op_total);
 	else if (flags->flag_int == 100)
-		radix_sort(&stack_a, &stack_b, op_total);
+		radix_sort(stack_a, stack_b, op_total);
 	if (flags->bench_int == 1)
 		print_bench(op_total, disorder, flags->flag_int, algo);
 }
@@ -61,7 +61,7 @@ int	main(int ac, char *av[])
 	stack_b = NULL;
 	get_indexs(&stack_a);
 	op_total = init_bench_struct();
-	do_algorithms(flags, stack_a, stack_b, op_total);
+	do_algorithms(flags, &stack_a, &stack_b, op_total);
 	// ft_print_stacks(stack_a, stack_b);
 	ft_lstclear(&stack_a);
 	free(op_total);
