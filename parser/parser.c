@@ -6,14 +6,14 @@
 /*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/13 00:33:55 by rogard-anto      ###   ########.fr       */
+/*   Updated: 2026/01/13 00:47:57 by rogard-anto      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-int	valid_arg(char *av, t_flags *flags)
+static int	valid_arg(char *av, t_flags *flags)
 {
 	int	i;
 	int	temp;
@@ -42,7 +42,7 @@ int	valid_arg(char *av, t_flags *flags)
 	return (1);
 }
 
-char	**one_arg_parser(char **av, t_flags *flags)
+static char	**one_arg_parser(char **av, t_flags *flags)
 {
 	int		i;
 	char	**buffer;
@@ -60,7 +60,7 @@ char	**one_arg_parser(char **av, t_flags *flags)
 	return (buffer);
 }
 
-char	**multiple_arg_parser(int ac, char **av, t_flags *flags)
+static char	**multiple_arg_parser(int ac, char **av, t_flags *flags)
 {
 	char	**buffer;
 	int		i;
@@ -84,7 +84,7 @@ char	**multiple_arg_parser(int ac, char **av, t_flags *flags)
 	return (buffer);
 }
 
-t_list	*create_list(char **buffer)
+static t_list	*create_list(char **buffer)
 {
 	int		i;
 	int		number;

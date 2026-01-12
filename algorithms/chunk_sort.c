@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:24:29 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/12 21:43:18 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/13 00:48:54 by rogard-anto      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-int	ft_sqrt(int numbers)
+static int	ft_sqrt(int numbers)
 {
 	int	n;
 
@@ -23,7 +23,7 @@ int	ft_sqrt(int numbers)
 	return (n);
 }
 
-int	push_chunk(t_list **stack_a, t_list **stack_b, int limit, t_bench *op_total)
+static int	push_chunk(t_list **stack_a, t_list **stack_b, int limit, t_bench *op_total)
 {
 	int	i;
 	int	j;
