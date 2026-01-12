@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/11 17:43:15 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/13 00:29:36 by rogard-anto      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	find_pos(t_list **stack_a)
 	temp = current;
 	while (current)
 	{
-		if ((current)->content < temp->content)
+		if ((current)->index < temp->index)
 		{
 			temp = current;
 			pos_temp = position;
