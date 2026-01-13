@@ -3,25 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/13 00:28:30 by rogard-anto      ###   ########.fr       */
+/*   Updated: 2026/01/13 17:41:57 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/bench.h"
 #include "includes/push_swap.h"
 #include "libft/includes/libft.h"
-
-static void	ft_free_flags(t_flags *flags)
-{
-	free(flags->simple);
-	free(flags->medium);
-	free(flags->complex);
-	free(flags->bench);
-	free(flags);
-}
 
 static void	do_algorithms(t_flags *flags, t_list **stack_a, t_list **stack_b,
 		t_bench *op_total)
@@ -51,7 +42,7 @@ int	main(int ac, char *av[])
 	t_flags	*flags;
 
 	flags = init_flags_struct();
-	stack_a = input_parser(ac, av, flags);
+	stack_a = input_parser(ac, av, flags, 0);
 	if (!stack_a)
 	{
 		ft_free_flags(flags);

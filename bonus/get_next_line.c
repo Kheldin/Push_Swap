@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 17:52:56 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/13 12:06:34 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/13 17:25:18 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ char	*get_next_line(int fd)
 	static char		*tmpbuf[FDS_MAX];
 	char			*tmp;
 	int				ret;
+	char *jsp;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -98,7 +99,10 @@ char	*get_next_line(int fd)
 	while (1)
 	{
 		if (ft_strchr_gnl(tmpbuf[fd], 10) != -1)
-			return (extract_line(&tmpbuf[fd]));
+		{
+			jsp = extract_line(&tmpbuf[fd]);
+			return (jsp);
+		}
 		ret = read(fd, buf, BUFFER_SIZE);
 		if (ret <= 0)
 			return (handle_read_end(&tmpbuf[fd], ret));

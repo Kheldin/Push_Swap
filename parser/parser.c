@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/13 00:47:57 by rogard-anto      ###   ########.fr       */
+/*   Updated: 2026/01/13 13:59:17 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-static int	valid_arg(char *av, t_flags *flags)
+int	valid_arg(char *av, t_flags *flags)
 {
 	int	i;
 	int	temp;
@@ -33,16 +33,10 @@ static int	valid_arg(char *av, t_flags *flags)
 		flags->flag_int += 101;
 	if (flags->flag_int != temp)
 		return (1);
-	while (av[i])
-	{
-		if (!ft_isdigit(av[i]))
-			return (0);
-		i++;
-	}
 	return (1);
 }
 
-static char	**one_arg_parser(char **av, t_flags *flags)
+char	**one_arg_parser(char **av, t_flags *flags)
 {
 	int		i;
 	char	**buffer;
@@ -60,7 +54,7 @@ static char	**one_arg_parser(char **av, t_flags *flags)
 	return (buffer);
 }
 
-static char	**multiple_arg_parser(int ac, char **av, t_flags *flags)
+char	**multiple_arg_parser(int ac, char **av, t_flags *flags)
 {
 	char	**buffer;
 	int		i;
@@ -84,7 +78,7 @@ static char	**multiple_arg_parser(int ac, char **av, t_flags *flags)
 	return (buffer);
 }
 
-static t_list	*create_list(char **buffer)
+t_list	*create_list(char **buffer)
 {
 	int		i;
 	int		number;
@@ -108,12 +102,13 @@ static t_list	*create_list(char **buffer)
 	return (stack_a);
 }
 
-t_list	*input_parser(int ac, char *av[], t_flags *flags)
+t_list	*input_parser(int ac, char *av[], t_flags *flags, int bench)
 {
 	t_list	*stack_a;
 	char	**buffer;
 
-	(void)flags;
+	if (bench == 1)
+		(void)flags;
 	stack_a = NULL;
 	buffer = NULL;
 	if (ac == 2)
