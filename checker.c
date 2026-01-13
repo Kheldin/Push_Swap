@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/13 12:09:32 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:53:14 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 int main(int ac, char **av)
 {
-    (void)ac;
-    (void)av;
-    printf("ca compile");
+    //int	ret;
+	int	i;
+
+	i = 0;
+    printf("CHECKER nb args %d\n", ac);
+	while (av[i])
+	{
+		printf("arg nb %d = %s\n", i, av[i]);
+		i++;
+	}
     return (0);
 }
