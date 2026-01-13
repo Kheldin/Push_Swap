@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/13 17:59:55 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/13 19:29:32 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,9 @@ static void	make_operation(char *operation, t_list **stack_a, t_list **stack_b)
 	else if (ft_strncmp(operation, "rrb", 2) == 0)
 		reverse_rotate_checker(stack_b);
 }
-		
+
 int	main(int ac, char **av)
 {
-	(void)ac;
-	(void)av;
 	char	*operation;
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -59,6 +57,11 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	flags = init_flags_struct();
 	stack_a = input_parser(ac, av, flags, 1);
+	if (!stack_a)
+	{
+		ft_free_flags(flags);
+		return (EXIT_FAILURE);
+	}
 	operation = get_next_line(0);
 	while (operation)
 	{

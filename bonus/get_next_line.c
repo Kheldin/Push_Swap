@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 17:52:56 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/13 17:25:18 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/13 19:32:02 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,10 @@ static char	*handle_read_end(char **tmpbuf, int ret)
 
 char	*get_next_line(int fd)
 {
-	char			buf[BUFFER_SIZE + 1];
-	static char		*tmpbuf[FDS_MAX];
-	char			*tmp;
-	int				ret;
-	char *jsp;
+	char		buf[BUFFER_SIZE + 1];
+	static char	*tmpbuf[FDS_MAX];
+	char		*tmp;
+	int			ret;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -99,10 +98,7 @@ char	*get_next_line(int fd)
 	while (1)
 	{
 		if (ft_strchr_gnl(tmpbuf[fd], 10) != -1)
-		{
-			jsp = extract_line(&tmpbuf[fd]);
-			return (jsp);
-		}
+			return (extract_line(&tmpbuf[fd]));
 		ret = read(fd, buf, BUFFER_SIZE);
 		if (ret <= 0)
 			return (handle_read_end(&tmpbuf[fd], ret));

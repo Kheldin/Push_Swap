@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rogard-antoine <rogard-antoine@student.    +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:24:29 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/13 00:48:54 by rogard-anto      ###   ########.fr       */
+/*   Updated: 2026/01/13 19:29:39 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static int	ft_sqrt(int numbers)
 	return (n);
 }
 
-static int	push_chunk(t_list **stack_a, t_list **stack_b, int limit, t_bench *op_total)
+static int	push_chunk(t_list **stack_a, t_list **stack_b, int limit,
+		t_bench *op_total)
 {
 	int	i;
 	int	j;
