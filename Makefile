@@ -6,7 +6,9 @@ AR			:= ar rcs
 SRCDIR		:= . parser operations algorithms utils bench
 DEPDIR		:= .deps
 INCDIR		:= includes
+BONUS_INCDIR := bonus/includes
 BUILDDIR	:= build
+BONUS_BUILDDIR := bonus/build
 
 SRCFILES	:= parser/parser.c parser/ft_free_buffer.c \
 			   operations/op_push.c operations/op_swap.c operations/op_rotate.c \
@@ -15,17 +17,22 @@ SRCFILES	:= parser/parser.c parser/ft_free_buffer.c \
 			   utils/final_push.c utils/get_indexs.c utils/disorder.c \
 			   utils/print_stacks.c utils/itoa_binary.c utils/init_flags_struct.c \
 			   utils/choose_algo.c bench/bench_utils.c bench/bench.c \
-			   main.c \
+			   main.c
+
+BONUS_SRCFILES := bonus/get_next_line.c bonus/get_next_line_utils.c operations/op_push.c operations/op_swap.c operations/op_rotate.c \
+				 checker.c
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h
+
+BONUS_OBJS := $(addprefix $(BONUS_BUILDDIR)/,$(BONUS_SRCFILES:.c=.o)) 
+BONUS_HEADER := bonus/includes/bonus.h
 
 DEPFLAGS	:= -MD -MP -MF $(DEPDIR)/$*.d
 
 LIBFTDIR	:= libft/
 LIBFT		:= $(LIBFTDIR)/libft.a
 
-ARG = 
 
 all: $(NAME)
 
@@ -39,17 +46,23 @@ $(BUILDDIR)/%.o: %.c $(HEADERS)
 	@mkdir -p $(dir $@) $(DEPDIR)/$(dir $<)
 	$(CC) $(CFLAGS) $(DEPFLAGS) -I$(INCDIR) -c $< -o $@
 
-vpath %.c $(SRCDIR) #Search *.c in all dir in SRCDIR
+$(BONUS_BUILDDIR)/%.o: %.c $(BONUS_HEADERS)
+	@mkdir -p $(dir $@) $(DEPDIR)/$(dir $<)
+	$(CC) $(CFLAGS) $(DEPFLAGS) -I$(BONUS_INCDIR) -c $< -o $@
+
+vpath %.c $(SRCDIR) # Search *.c in all dir in SRCDIR
 -include $(addprefix $(DEPDIR)/,$(SRCFILES:.c=.d))
 
 clean:
 	rm -rf $(DEPDIR)
 	rm -rf $(BUILDDIR)
+	rm -rf $(BONUS_BUILDDIR)
 	rm -f *.txt
 	$(MAKE) -C $(LIBFTDIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f checker
 	$(MAKE) -C $(LIBFTDIR) fclean
 
 re: fclean all
@@ -62,4 +75,7 @@ gdb_debug: re $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) -g3 $(OBJS) $(LIBFT) -o $(NAME)
 	gdb --args ./$(NAME) $(ARG)
 
-.PHONY: all clean fclean re force debug gdb_debug
+bonus: $(BONUS_OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o checker
+
+.PHONY: all clean fclean re force debug gdb_debug bonus
