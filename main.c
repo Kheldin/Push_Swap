@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/13 17:41:57 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:28:41 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ int	main(int ac, char *av[])
 	t_bench	*op_total;
 	t_flags	*flags;
 
+	if (ac == 1)
+		return (EXIT_SUCCESS);
 	flags = init_flags_struct();
-	stack_a = input_parser(ac, av, flags, 0);
+	stack_a = input_parser(ac, av, flags);
 	if (!stack_a)
 	{
 		ft_free_flags(flags);

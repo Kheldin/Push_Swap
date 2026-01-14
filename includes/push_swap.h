@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/13 17:41:24 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:02:07 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_flags
 // parser
 
 void		ft_free_buffer(char **buffer);
-t_list		*input_parser(int argc, char *argv[], t_flags *flags, int bench);
+t_list		*input_parser(int argc, char **argv, t_flags *flags);
 
 // operation
 
