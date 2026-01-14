@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/14 12:02:48 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/14 13:57:13 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,24 @@ int	valid_arg(char *av, t_flags *flags)
 	return (1);
 }
 
-void parser(char **av, char **buffer)
+void parser(char **av, char ***buffer, int nb_args)
 {
 	int		i;
 	int		pos;
 	char	**splited_arg;
 
-	i = 0;
 	pos = 0;
-	splited_arg = ft_split(av[1], ' ');
-	if (!splited_arg)
-		return ; //  Rien a free ici jcrois
-	while (splited_arg[i])
-		buffer[pos++] = ft_strdup(splited_arg[i++]);
+	while (pos < nb_args)
+	{
+		//ft_printf("allo\n");
+		splited_arg = ft_split(av[1], ' ');
+		if (!splited_arg)
+			return (ft_free_buffer(*buffer));
+		i = 0;
+		while (splited_arg[i])
+			(*buffer)[pos++] = ft_strdup(splited_arg[i++]);
+		ft_free_buffer(splited_arg);
+	}
 }
 
 t_list	*create_list(char **buffer)
@@ -95,8 +100,8 @@ static int	count_args(int ac, char **av)
 			count++;
 		}
 		ac--;
+		ft_free_buffer(buffer);
 	}
-	ft_free_buffer(buffer);
 	return (count);
 }
 
@@ -105,7 +110,7 @@ t_list	*input_parser(int ac, char **av, t_flags *flags)
 	t_list	*stack_a;
 	char	**buffer;
 	int		nb_args;
-
+	int	i; // a delete
 	
 	stack_a = NULL;
 	nb_args = count_args(ac, av);
@@ -116,7 +121,14 @@ t_list	*input_parser(int ac, char **av, t_flags *flags)
 	buffer = ft_calloc(nb_args + 1, sizeof(char *));
 	if (!buffer)
 		return (NULL);
-	parser(av, buffer);
+	buffer[nb_args] = NULL;
+	parser(av, &buffer, nb_args);
+	i = 0;
+	while (buffer[i])
+	{
+		ft_printf("Buffer[%d] = %s\n", i, buffer[i]);
+		i++;
+	}
 	// Ici jappelle valid arg et si ca return -1, free + null
 	stack_a = create_list(buffer);
 	ft_free_buffer(buffer);

@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:03:58 by kacherch          #+#    #+#             */
-/*   Updated: 2025/11/06 12:55:06 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:53:50 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,12 @@ static char	*ft_worddup(char const *str, int start, int end)
 	int		i;
 	char	*word;
 
-	word = malloc(sizeof(char) * (end - start + 1));
+	word = ft_calloc((end - start + 1), sizeof(char));
 	if (!word)
 		return (NULL);
 	i = 0;
 	while (start < end)
 		word[i++] = str[start++];
-	word[i] = '\0';
 	return (word);
 }
 

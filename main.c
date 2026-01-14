@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/14 12:28:41 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:31:23 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(int ac, char *av[])
 	get_indexs(&stack_a);
 	op_total = init_bench_struct();
 	do_algorithms(flags, &stack_a, &stack_b, op_total);
+	ft_print_stacks(stack_a, stack_b);
 	ft_lstclear(&stack_a);
 	free(op_total);
 	ft_free_flags(flags);
