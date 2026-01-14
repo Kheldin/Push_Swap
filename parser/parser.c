@@ -6,36 +6,60 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/14 14:08:47 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/14 14:44:47 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-int	valid_arg(char *av, t_flags *flags)
+int	handle_flags(char *arg, t_flags *flags)
+{
+	ft_printf("flag being tested = %s\n", arg);
+	if (ft_strncmp(flags->simple, arg, ft_strlen(flags->simple)) == 0
+	&& flags->flag_int == -1)
+		flags->flag_int = 1;
+	else if (ft_strncmp(arg, flags->medium, ft_strlen(flags->medium)) == 0 
+	&& flags->flag_int == -1)
+		flags->flag_int = 10;
+	else if (ft_strncmp(arg, flags->complex, ft_strlen(flags->complex)) == 0
+	&& flags->flag_int == -1)
+		flags->flag_int = 100;
+	else if (ft_strncmp(arg, flags->bench, ft_strlen(flags->bench)) == 0)
+		flags->bench_int = 1;
+	else
+		return (-1);
+	return (1);
+}
+
+static int	valid_args(char **buffer, t_flags *flags)
 {
 	int	i;
+	int	j;
+	int	ret;
 
 	i = 0;
-	if (ft_strncmp(flags->simple, av, 9) == 0)
-		flags->flag_int = 1;
-	else if (ft_strncmp(av, flags->medium, 9) == 0)
-		flags->flag_int = 10;
-	else if (ft_strncmp(av, flags->complex, 10) == 0)
-		flags->flag_int = 100;
-	else if (ft_strncmp(av, flags->bench, 7) == 0)
-		flags->bench_int = 1;
-	if (flags->flag_int > 0 || flags->bench_int > 0)
-		return (1);
-	while (av[i])
+	while (buffer[i])
 	{
-		if (!ft_isdigit(av[i]))
-			return (0);
+		j = 0;
+		if (!ft_isdigit(buffer[i][0]))
+		{
+			ret = handle_flags(buffer[i], flags);
+			if (ret == -1)
+				return (-1);
+		}
+		else
+			while (buffer[i][j])
+			{
+				if (!ft_isdigit(buffer[i][j]))
+					return (-1);
+				j++;
+			}
 		i++;
 	}
 	return (1);
 }
+
 
 void parser(char **av, char **buffer, int nb_args)
 {
@@ -111,11 +135,9 @@ t_list	*input_parser(int ac, char **av, t_flags *flags)
 	t_list	*stack_a;
 	char	**buffer;
 	int		nb_args;
-	int	i; // a delete
 	
 	stack_a = NULL;
 	nb_args = count_args(ac, av);
-	(void)flags;
 	ft_printf("Count args returned %d\n", nb_args);
 	if (nb_args == -1)
 		return (NULL);
@@ -123,13 +145,8 @@ t_list	*input_parser(int ac, char **av, t_flags *flags)
 	if (!buffer)
 		return (NULL);
 	parser(av, buffer, nb_args);
-	i = 0;
-	while (buffer[i])
-	{
-		ft_printf("Buffer[%d] = %s\n", i, buffer[i]);
-		i++;
-	}
-	// Ici jappelle valid arg et si ca return -1, free + null
+	if (valid_args(buffer, flags) == -1)
+		return (ft_free_buffer(buffer), NULL);
 	stack_a = create_list(buffer);
 	ft_free_buffer(buffer);
 	return (stack_a);
