@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/13 19:29:32 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/14 17:41:52 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(int ac, char **av)
 
 	stack_b = NULL;
 	flags = init_flags_struct();
-	stack_a = input_parser(ac, av, flags, 1);
+	stack_a = input_parser(ac, av, flags);
 	if (!stack_a)
 	{
 		ft_free_flags(flags);
