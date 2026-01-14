@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/14 14:44:47 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/14 14:47:05 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@
 int	handle_flags(char *arg, t_flags *flags)
 {
 	ft_printf("flag being tested = %s\n", arg);
-	if (ft_strncmp(flags->simple, arg, ft_strlen(flags->simple)) == 0
+	if (ft_strncmp(flags->simple, arg, ft_strlen(arg)) == 0
 	&& flags->flag_int == -1)
 		flags->flag_int = 1;
-	else if (ft_strncmp(arg, flags->medium, ft_strlen(flags->medium)) == 0 
+	else if (ft_strncmp(arg, flags->medium, ft_strlen(arg)) == 0 
 	&& flags->flag_int == -1)
 		flags->flag_int = 10;
-	else if (ft_strncmp(arg, flags->complex, ft_strlen(flags->complex)) == 0
+	else if (ft_strncmp(arg, flags->complex, ft_strlen(arg)) == 0
 	&& flags->flag_int == -1)
 		flags->flag_int = 100;
-	else if (ft_strncmp(arg, flags->bench, ft_strlen(flags->bench)) == 0)
+	else if (ft_strncmp(arg, flags->bench, ft_strlen(arg)) == 0
+			&& flags->bench_int == -1)
 		flags->bench_int = 1;
 	else
 		return (-1);
