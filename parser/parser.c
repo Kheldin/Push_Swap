@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/14 13:57:13 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/14 14:02:55 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,23 @@ int	valid_arg(char *av, t_flags *flags)
 	return (1);
 }
 
-void parser(char **av, char ***buffer, int nb_args)
+void parser(char **av, char **buffer, int nb_args)
 {
 	int		i;
+	int		j;
 	int		pos;
 	char	**splited_arg;
 
 	pos = 0;
+	j = 0;
 	while (pos < nb_args)
 	{
-		//ft_printf("allo\n");
-		splited_arg = ft_split(av[1], ' ');
+		splited_arg = ft_split(av[j++], ' ');
 		if (!splited_arg)
-			return (ft_free_buffer(*buffer));
+			return (ft_free_buffer(buffer));
 		i = 0;
 		while (splited_arg[i])
-			(*buffer)[pos++] = ft_strdup(splited_arg[i++]);
+			buffer[pos++] = ft_strdup(splited_arg[i++]);
 		ft_free_buffer(splited_arg);
 	}
 }
@@ -122,7 +123,7 @@ t_list	*input_parser(int ac, char **av, t_flags *flags)
 	if (!buffer)
 		return (NULL);
 	buffer[nb_args] = NULL;
-	parser(av, &buffer, nb_args);
+	parser(av, buffer, nb_args);
 	i = 0;
 	while (buffer[i])
 	{
