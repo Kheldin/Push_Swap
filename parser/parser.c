@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/14 14:02:55 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/14 14:08:47 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void parser(char **av, char **buffer, int nb_args)
 	char	**splited_arg;
 
 	pos = 0;
-	j = 0;
+	j = 1;
 	while (pos < nb_args)
 	{
 		splited_arg = ft_split(av[j++], ' ');
@@ -122,7 +122,6 @@ t_list	*input_parser(int ac, char **av, t_flags *flags)
 	buffer = ft_calloc(nb_args + 1, sizeof(char *));
 	if (!buffer)
 		return (NULL);
-	buffer[nb_args] = NULL;
 	parser(av, buffer, nb_args);
 	i = 0;
 	while (buffer[i])
