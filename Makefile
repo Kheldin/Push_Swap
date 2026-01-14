@@ -29,7 +29,7 @@ BONUS_SRCFILES := bonus/get_next_line.c bonus/get_next_line_utils.c \
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h
 
-BONUS_OBJS := $(BONUS_SRCFILES:.c=.o) 
+BONUS_OBJS := $(addprefix $(BUILDDIR)/,$(BONUS_SRCFILES:.c=.o))
 BONUS_HEADER := bonus/includes/bonus.h
 
 DEPFLAGS	:= -MD -MP -MF $(DEPDIR)/$*.d
