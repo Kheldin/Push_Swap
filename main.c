@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/16 18:31:21 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/16 18:47:28 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,18 @@ int	main(int ac, char *av[])
 	if (flags == NULL)
 		return (EXIT_FAILURE);
 	stack_a = input_parser(ac, av, flags);
+	if (!stack_a)
+	{
+		free(flags);
+		ft_putendl_fd("Error", 2);
+		return (EXIT_FAILURE);
+	}
 	ft_printf("flags->bench = %d\n", flags->bench_int);
 	if (check_list_sort(&stack_a) == 1)
 	{
 		free(flags);
 		ft_lstclear(&stack_a);
 		return (EXIT_SUCCESS);		
-	}
-	if (!stack_a)
-	{
-		ft_putendl_fd("Error", 2);
-		return (EXIT_FAILURE);
 	}
 	stack_b = NULL;
 	get_indexs(&stack_a);

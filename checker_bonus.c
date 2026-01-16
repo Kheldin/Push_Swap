@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/16 18:08:57 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/16 18:52:03 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,16 +90,20 @@ int	main(int ac, char **av)
 	stack_a = input_parser(ac, av, flags);
 	if (!stack_a)
 	{
-		ft_free_flags(flags);
+		free(flags);
 		ft_putendl_fd("Error", 2);
 		return (EXIT_FAILURE);
 	}
 	operation = get_next_line(0);
 	check = operation_loop(operation, &stack_a, &stack_b);
 	if (check == -1)
+	{
+		free(flags);
+		ft_lstclear(&stack_a);
 		return (EXIT_FAILURE);
+	}
 	checker(&stack_a, &stack_b);
-	ft_free_flags(flags);
+	free(flags);
 	ft_lstclear(&stack_a);
 	return (EXIT_SUCCESS);
 }
