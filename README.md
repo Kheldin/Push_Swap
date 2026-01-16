@@ -248,8 +248,8 @@ shuf -i 0-9999 -n 100 > args.txt ; ./push_swap $(cat args.txt) | wc -l
 |----------------|------------|----------------|----------------|--------|
 | Low (< 0.2) | 100 | Selection | Too much | ✓ |
 | Medium (0.2-0.5) | 100 | Chunk | ~1000 | ✓ |
-| High (≥ 0.5) | 100 | Radix | ~1000 | ✓ |
-| High (≥ 0.5) | 500 | Radix | ~8500 | ✓ |
+| High (≥ 0.5) | 100 | Radix | =1084 | ✓ |
+| High (≥ 0.5) | 500 | Radix | =6784 | ✓ |
 
 **Note:** Actual operation counts vary based on specific input distribution and disorder coefficient.
 
