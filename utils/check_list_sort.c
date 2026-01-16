@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_flags.c                                       :+:      :+:    :+:   */
+/*   check_list_sort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/13 17:39:21 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/13 19:30:28 by anrogard         ###   ########.fr       */
+/*   Created: 2026/01/16 18:10:28 by anrogard          #+#    #+#             */
+/*   Updated: 2026/01/16 18:14:18 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include "../libft/includes/libft.h"
 
-void	ft_free_flags(t_flags *flags)
+int	check_list_sort(t_list **stack_a)
 {
-	free(flags->simple);
-	free(flags->medium);
-	free(flags->complex);
-	free(flags->bench);
-	free(flags);
+	t_list	*current;
+
+	current = *stack_a;
+	while (current->next)
+	{
+		if (current->content > current->next->content)
+			return -1;
+		current = current->next;
+	}
+	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/16 10:10:47 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/16 18:31:21 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft/includes/libft.h"
 
 static void	do_algorithms(t_flags *flags, t_list **stack_a, t_list **stack_b,
-		t_bench *op_total)
+		t_bench op_total)
 {
 	float	disorder;
 	int		algo;
@@ -38,17 +38,25 @@ int	main(int ac, char *av[])
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	t_bench	*op_total;
+	t_bench	op_total;
 	t_flags	*flags;
 
 	if (ac == 1)
 		return (EXIT_SUCCESS);
 	flags = init_flags_struct();
+	if (flags == NULL)
+		return (EXIT_FAILURE);
 	stack_a = input_parser(ac, av, flags);
+	ft_printf("flags->bench = %d\n", flags->bench_int);
+	if (check_list_sort(&stack_a) == 1)
+	{
+		free(flags);
+		ft_lstclear(&stack_a);
+		return (EXIT_SUCCESS);		
+	}
 	if (!stack_a)
 	{
-		ft_free_flags(flags);
-		write(2, "Error\n", 7);
+		ft_putendl_fd("Error", 2);
 		return (EXIT_FAILURE);
 	}
 	stack_b = NULL;
@@ -56,7 +64,6 @@ int	main(int ac, char *av[])
 	op_total = init_bench_struct();
 	do_algorithms(flags, &stack_a, &stack_b, op_total);
 	ft_lstclear(&stack_a);
-	free(op_total);
-	ft_free_flags(flags);
+	free(flags);
 	return (EXIT_SUCCESS);
 }

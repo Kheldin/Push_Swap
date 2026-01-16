@@ -17,14 +17,14 @@ SRCFILES	:= parser/parser.c parser/ft_free_buffer.c \
 			   utils/final_push.c utils/get_indexs.c utils/disorder.c \
 			   utils/itoa_binary.c utils/init_flags_struct.c \
 			   utils/choose_algo.c bench/bench_utils.c bench/bench.c \
-			   utils/free_flags.c utils/handle_flags.c \
+			   utils/handle_flags.c utils/check_list_sort.c \
 			   main.c parser/is_duplicate.c
 
 BONUS_SRCFILES := bonus/get_next_line_bonus.c bonus/get_next_line_utils_bonus.c \
 				  parser/parser.c parser/ft_free_buffer.c \
 				  bonus/operations_checker_bonus.c checker_bonus.c\
-				  utils/init_flags_struct.c\
-				  utils/free_flags.c utils/handle_flags.c parser/is_duplicate.c \
+				  utils/init_flags_struct.c \
+				  utils/handle_flags.c parser/is_duplicate.c \
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h

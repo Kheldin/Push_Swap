@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:24:29 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/13 19:29:39 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/16 18:01:54 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_sqrt(int numbers)
 }
 
 static int	push_chunk(t_list **stack_a, t_list **stack_b, int limit,
-		t_bench *op_total)
+		t_bench op_total)
 {
 	int	i;
 	int	j;
@@ -49,7 +49,7 @@ static int	push_chunk(t_list **stack_a, t_list **stack_b, int limit,
 	return (0);
 }
 
-void	chunk_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
+void	chunk_sort(t_list **stack_a, t_list **stack_b, t_bench op_total)
 {
 	int	stack_a_size;
 	int	chunks;

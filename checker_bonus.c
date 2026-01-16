@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/14 21:10:16 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/16 18:08:57 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	operation_loop(char *operation, t_list **stack_a, t_list **stack_b)
 		if (check == -1)
 		{
 			free(operation);
-			write(2, "Error\n", 7);
+			ft_putendl_fd("Error", 2);
 			return (-1);
 		}
 		free(operation);
@@ -91,7 +91,7 @@ int	main(int ac, char **av)
 	if (!stack_a)
 	{
 		ft_free_flags(flags);
-		write(2, "Error\n", 7);
+		ft_putendl_fd("Error", 2);
 		return (EXIT_FAILURE);
 	}
 	operation = get_next_line(0);
