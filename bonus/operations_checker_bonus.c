@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_checker.c                               :+:      :+:    :+:   */
+/*   operations_checker_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:19:11 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/13 15:37:30 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/16 19:22:46 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,23 @@ void	reverse_rotate_checker(t_list **node)
 	penultimate->next = NULL;
 	last->next = first;
 	(*node) = last;
+}
+
+void	swap_checker(t_list **first)
+{
+	int		temp_content;
+	t_list	*second;
+
+	if ((*first) == NULL || (*first)->next == NULL)
+		return ;
+	second = (*first)->next;
+	temp_content = (*first)->content;
+	(*first)->content = second->content;
+	second->content = temp_content;
+}
+
+void	swap_ss_checker(t_list **first_a, t_list **first_b)
+{
+	swap_checker(first_a);
+	swap_checker(first_b);
 }
