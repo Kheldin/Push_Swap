@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/14 12:02:07 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/14 20:13:50 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_flags
 
 void		ft_free_buffer(char **buffer);
 t_list		*input_parser(int argc, char **argv, t_flags *flags);
+int			is_duplicate(char **buffer, char *arg);
 
 // operation
 
@@ -65,5 +66,6 @@ void		final_push_selection(t_list **stack_a, t_list **stack_b,
 				t_bench *op_total);
 char		*ft_itoa_disorder(int n);
 void		ft_free_flags(t_flags *flags);
+int			handle_flags(char *arg, t_flags *flags);
 
 #endif

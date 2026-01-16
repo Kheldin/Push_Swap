@@ -15,16 +15,16 @@ SRCFILES	:= parser/parser.c parser/ft_free_buffer.c \
 			   algorithms/selection_sort.c algorithms/chunk_sort.c \
 			   algorithms/selection_sort_for_chunk.c algorithms/radix_sort.c \
 			   utils/final_push.c utils/get_indexs.c utils/disorder.c \
-			   utils/print_stacks.c utils/itoa_binary.c utils/init_flags_struct.c \
+			   utils/itoa_binary.c utils/init_flags_struct.c \
 			   utils/choose_algo.c bench/bench_utils.c bench/bench.c \
-			   utils/free_flags.c \
-			   main.c
+			   utils/free_flags.c utils/handle_flags.c \
+			   main.c parser/is_duplicate.c
 
-BONUS_SRCFILES := bonus/get_next_line.c bonus/get_next_line_utils.c \
+BONUS_SRCFILES := bonus/get_next_line_bonus.c bonus/get_next_line_utils_bonus.c \
 				  parser/parser.c parser/ft_free_buffer.c \
-				  bonus/operations_checker.c checker.c\
-				  utils/init_flags_struct.c utils/print_stacks.c \
-				  utils/free_flags.c \
+				  bonus/operations_checker_bonus.c checker_bonus.c\
+				  utils/init_flags_struct.c\
+				  utils/free_flags.c utils/handle_flags.c parser/is_duplicate.c \
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h

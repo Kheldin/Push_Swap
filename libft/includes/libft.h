@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:04:58 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/10 22:08:19 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/14 20:15:20 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,14 @@ size_t				ft_strlen(const char *s);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dsize);
 int					ft_strncmp(char *s1, char *s2, size_t n);
-char				*ft_strnstr(char *haystack, char *needle,
-						size_t len);
+char				*ft_strnstr(char *haystack, char *needle, size_t len);
 
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 
-int					ft_atoi(const char *nptr);
+long				ft_atoi(const char *nptr);
 
 void				ft_bzero(void *s, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);

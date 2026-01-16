@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:04:52 by kacherch          #+#    #+#             */
-/*   Updated: 2025/11/03 16:50:27 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/14 18:18:59 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	metsign;
-	int	sign;
-	int	res;
+	int		i;
+	int		metsign;
+	long	sign;
+	long	res;
 
 	res = 0;
 	sign = 1;

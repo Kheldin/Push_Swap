@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stacks.c                                     :+:      :+:    :+:   */
+/*   is_duplicate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/07 21:26:59 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/07 21:27:20 by anrogard         ###   ########.fr       */
+/*   Created: 2026/01/14 18:40:45 by anrogard          #+#    #+#             */
+/*   Updated: 2026/01/14 20:44:01 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-void	ft_print_stacks(t_list *stack_a, t_list *stack_b)
+int	is_duplicate(char **buffer, char *arg)
 {
-	while (stack_a || stack_b)
+	int	i;
+
+	i = 0;
+	while (buffer[i])
 	{
-		if (stack_a)
-		{
-			ft_printf("%d ", stack_a->content);
-			stack_a = stack_a->next;
-		}
-		else
-			ft_printf("  ");
-		if (stack_b)
-		{
-			ft_printf("%d\n", stack_b->content);
-			stack_b = stack_b->next;
-		}
-		else
-			ft_printf("\n");
+		if (ft_strncmp(buffer[i], arg, ft_strlen(arg)) == 0)
+			return (1);
+		i++;
 	}
-	ft_printf("_ _\na b\n\n");
+	return (0);
 }
