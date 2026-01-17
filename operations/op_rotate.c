@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 21:35:14 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/16 18:01:09 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/17 12:59:59 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/bench.h"
 #include "../libft/includes/libft.h"
 
-void	rotate(t_list **node, char stack, t_bench op_total, int is_rr)
+void	rotate(t_list **node, char stack, t_bench *op_total, int is_rr)
 {
 	t_list	*last;
 	t_list	*first;
@@ -30,47 +30,47 @@ void	rotate(t_list **node, char stack, t_bench op_total, int is_rr)
 		if (stack == 'a')
 		{
 			write(1, "ra\n", 3);
-			op_total.ra += 1;
+			op_total->ra += 1;
 		}
 		if (stack == 'b')
 		{
 			write(1, "rb\n", 3);
-			op_total.rb += 1;
+			op_total->rb += 1;
 		}
 	}
 }
 
-void	rotate_rr(t_list **node_a, t_list **node_b, t_bench op_total)
+void	rotate_rr(t_list **node_a, t_list **node_b, t_bench *op_total)
 {
 	rotate(node_a, ' ', op_total, 1);
 	rotate(node_b, ' ', op_total, 1);
-	op_total.rr += 1;
+	op_total->rr += 1;
 	write(1, "rr\n", 3);
 }
 
-static void	handle_rrr_bench(char stack, t_bench op_total, int is_rr)
+static void	handle_rrr_bench(char stack, t_bench *op_total, int is_rr)
 {
 	if (!is_rr)
 	{
 		if (stack == 'a')
 		{
 			write(1, "rra\n", 4);
-			op_total.rra += 1;
+			op_total->rra += 1;
 		}
 		else
 		{
 			write(1, "rrb\n", 4);
-			op_total.rrb += 1;
+			op_total->rrb += 1;
 		}
 	}
 	else
 	{
 		write(1, "rrr\n", 4);
-		op_total.rrr += 1;
+		op_total->rrr += 1;
 	}
 }
 
-void	reverse_rotate(t_list **node, char stack, t_bench op_total, int is_rr)
+void	reverse_rotate(t_list **node, char stack, t_bench *op_total, int is_rr)
 {
 	t_list	*last;
 	t_list	*first;
@@ -92,10 +92,10 @@ void	reverse_rotate(t_list **node, char stack, t_bench op_total, int is_rr)
 	handle_rrr_bench(stack, op_total, is_rr);
 }
 
-void	reverse_rotate_rr(t_list **node_a, t_list **node_b, t_bench op_total)
+void	reverse_rotate_rr(t_list **node_a, t_list **node_b, t_bench *op_total)
 {
 	reverse_rotate(node_a, ' ', op_total, 1);
 	reverse_rotate(node_b, ' ', op_total, 1);
 	write(1, "rrr\n", 4);
-	op_total.rrr += 1;
+	op_total->rrr += 1;
 }

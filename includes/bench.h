@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 23:30:32 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/16 17:58:59 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/17 13:05:00 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ typedef struct s_bench
 }		t_bench;
 
 t_bench	init_bench_struct(void);
-void	print_bench(t_bench op_total, float disorder, int flag_int, int algo);
+void	print_bench(t_bench *op_total, float disorder, int flag_int, int algo);
 
 #endif

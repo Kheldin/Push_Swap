@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:30:47 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/16 18:00:13 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/17 13:03:25 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../libft/includes/libft.h"
 
 static void	rotate_direction(t_list **stack_a, int stack_size,
-		int pos_temp, t_bench op_total)
+		int pos_temp, t_bench *op_total)
 {
 	int	diff;
 
@@ -59,7 +59,7 @@ static int	find_pos(t_list **stack_a)
 }
 
 void	selection_sort(t_list **stack_a, t_list **stack_b,
-		t_bench op_total)
+		t_bench *op_total)
 {
 	int	stack_size;
 	int	pos_temp;

@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/17 11:45:11 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/17 12:54:24 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft/includes/libft.h"
 
 static void	do_algorithms(t_flags *flags, t_list **stack_a, t_list **stack_b,
-		t_bench op_total)
+		t_bench *op_total)
 {
 	float	disorder;
 	int		algo;
@@ -62,7 +62,7 @@ int	main(int ac, char *av[])
 	stack_b = NULL;
 	get_indexs(&stack_a);
 	op_total = init_bench_struct();
-	do_algorithms(flags, &stack_a, &stack_b, op_total);
+	do_algorithms(flags, &stack_a, &stack_b, &op_total);
 	ft_lstclear(&stack_a);
 	free(flags);
 	return (EXIT_SUCCESS);

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:11:48 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/16 18:02:07 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/17 13:02:10 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-static void	push_back(t_list **stack_a, t_list **stack_b, t_bench op_total)
+static void	push_back(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 {
 	t_list	*current_b;
 
@@ -55,7 +55,7 @@ int	find_max(t_list **stack_a)
 	return (max);
 }
 
-void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench op_total)
+void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 {
 	int		max;
 	int		stack_size;

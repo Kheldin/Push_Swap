@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   choose_algo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:15:13 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/16 18:02:58 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/17 13:03:09 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-int	choose_algo(t_list **stack_a, t_list **stack_b, t_bench op_total,
+int	choose_algo(t_list **stack_a, t_list **stack_b, t_bench *op_total,
 		float disorder)
 {
 	disorder /= 10000;

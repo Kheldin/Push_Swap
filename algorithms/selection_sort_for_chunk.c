@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort_for_chunk.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:57:13 by rogard-anto       #+#    #+#             */
-/*   Updated: 2026/01/16 18:02:16 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/17 13:02:35 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../libft/includes/libft.h"
 
 static void	rotate_direction_chunk(t_list **stack_b, int stack_size,
-		int pos_temp, t_bench op_total)
+		int pos_temp, t_bench *op_total)
 {
 	int	diff;
 
@@ -59,7 +59,7 @@ static int	find_pos_chunk(t_list **stack_a)
 }
 
 void	selection_sort_chunk(t_list **stack_a, t_list **stack_b,
-		t_bench op_total)
+		t_bench *op_total)
 {
 	int	stack_size;
 	int	pos_temp;
