@@ -17,6 +17,7 @@ This project explores algorithm optimization, complexity analysis, and the imple
 
 ```bash
 make
+make bonus
 ```
 
 This will compile both `push_swap` and `checker` programs.
