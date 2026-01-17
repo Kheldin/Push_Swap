@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/17 16:28:25 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/17 16:36:34 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,12 @@ int	operation_loop(char *operation, t_list **stack_a, t_list **stack_b)
 	while (operation)
 	{
 		check = make_operation(operation, stack_a, stack_b);
+		free(operation);
 		if (check == -1)
 		{
-			free(operation);
 			ft_putendl_fd("Error", 2);
 			return (-1);
 		}
-		free(operation);
 		operation = get_next_line(0);
 	}
 	return (0);
@@ -112,17 +111,16 @@ int	main(int ac, char **av)
 	}
 	operation = get_next_line(0);
 	check = operation_loop(operation, &stack_a, &stack_b);
+	// ft_printf("check %d\n", check);
 	if (check == -1)
 	{
 		free(flags);
-		//free(operation);
 		ft_lstclear(&stack_a);
 		ft_lstclear(&stack_b);
 		return (EXIT_FAILURE);
 	}
 	checker(&stack_a, &stack_b);
 	free(flags);
-	free(operation);
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 	return (EXIT_SUCCESS);
