@@ -6,7 +6,7 @@
 /*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/16 19:20:41 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/17 15:00:42 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,15 @@ int	main(int ac, char **av)
 	if (check == -1)
 	{
 		free(flags);
+		free(operation);
 		ft_lstclear(&stack_a);
+		ft_lstclear(&stack_b);
 		return (EXIT_FAILURE);
 	}
 	checker(&stack_a, &stack_b);
 	free(flags);
+	free(operation);
 	ft_lstclear(&stack_a);
+	ft_lstclear(&stack_b);
 	return (EXIT_SUCCESS);
 }
