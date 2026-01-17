@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/17 15:00:42 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/17 16:11:31 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,23 @@ void	checker(t_list **stack_a, t_list **stack_b)
 
 static int	make_operation(char *operation, t_list **stack_a, t_list **stack_b)
 {
-	if (ft_strncmp(operation, "pa", 2) == 0)
+	if (ft_strncmp(operation, "pa\n", 3) == 0)
 		push_checker(stack_a, stack_b, 'a');
-	else if (ft_strncmp(operation, "pb", 2) == 0)
+	else if (ft_strncmp(operation, "pb\n", 3) == 0)
 		push_checker(stack_a, stack_b, 'b');
-	else if (ft_strncmp(operation, "ra", 2) == 0)
+	else if (ft_strncmp(operation, "ra\n", 3) == 0)
 		rotate_checker(stack_a);
-	else if (ft_strncmp(operation, "rb", 2) == 0)
+	else if (ft_strncmp(operation, "rb\n", 3) == 0)
 		rotate_checker(stack_b);
-	else if (ft_strncmp(operation, "rra", 3) == 0)
+	else if (ft_strncmp(operation, "rra\n", 4) == 0)
 		reverse_rotate_checker(stack_a);
-	else if (ft_strncmp(operation, "rrb", 3) == 0)
+	else if (ft_strncmp(operation, "rrb\n", 4) == 0)
 		reverse_rotate_checker(stack_b);
-	else if (ft_strncmp(operation, "sa", 2) == 0)
+	else if (ft_strncmp(operation, "sa\n", 3) == 0)
 		swap_checker(stack_a);
-	else if (ft_strncmp(operation, "sb", 2) == 0)
+	else if (ft_strncmp(operation, "sb\n", 3) == 0)
 		swap_checker(stack_b);
-	else if (ft_strncmp(operation, "ss", 2) == 0)
+	else if (ft_strncmp(operation, "ss\n", 3) == 0)
 		swap_ss_checker(stack_a, stack_b);
 	else
 		return (-1);
@@ -71,7 +71,7 @@ int	operation_loop(char *operation, t_list **stack_a, t_list **stack_b)
 		check = make_operation(operation, stack_a, stack_b);
 		if (check == -1)
 		{
-			free(operation);
+			//free(operation);
 			ft_putendl_fd("Error", 2);
 			return (-1);
 		}
