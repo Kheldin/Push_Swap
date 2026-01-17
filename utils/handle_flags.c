@@ -26,13 +26,10 @@ int	handle_flags(char *arg, t_flags *flags)
 		flags->flag_int = 100;
 	else if (ft_strncmp(arg, BENCH_FLAG, ft_strlen(arg)) == 0
 		&& flags->bench_int == NO_FLAGS)
-	{
 		flags->bench_int = 1;
-		ft_printf("bench found\n");
-	}
 	else if (ft_strncmp(arg, ADAPTIVE_FLAG, ft_strlen(arg)) == 0
-		&& flags->bench_int == NO_FLAGS)
-		return (1);
+		&& flags->flag_int == NO_FLAGS)
+		flags->flag_int = 1000;
 	else
 		return (-1);
 	return (1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/16 18:47:28 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/17 11:45:11 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	do_algorithms(t_flags *flags, t_list **stack_a, t_list **stack_b,
 
 	algo = 0;
 	disorder = get_disorder(stack_a);
-	if (flags->flag_int == -1)
+	if (flags->flag_int == -1 || flags->flag_int == 1000)
 		algo = choose_algo(stack_a, stack_b, op_total, disorder);
 	else if (flags->flag_int == 1)
 		selection_sort(stack_a, stack_b, op_total);
@@ -53,7 +53,6 @@ int	main(int ac, char *av[])
 		ft_putendl_fd("Error", 2);
 		return (EXIT_FAILURE);
 	}
-	ft_printf("flags->bench = %d\n", flags->bench_int);
 	if (check_list_sort(&stack_a) == 1)
 	{
 		free(flags);
