@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/17 16:11:31 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/17 16:28:25 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,16 @@ static int	make_operation(char *operation, t_list **stack_a, t_list **stack_b)
 		swap_checker(stack_b);
 	else if (ft_strncmp(operation, "ss\n", 3) == 0)
 		swap_ss_checker(stack_a, stack_b);
+	else if (ft_strncmp(operation, "rrr\n", 4) == 0)
+	{
+		reverse_rotate_checker(stack_a);
+		reverse_rotate_checker(stack_b);
+	}
+	else if (ft_strncmp(operation, "rr\n", 3) == 0)
+	{
+		rotate_checker(stack_a);
+		rotate_checker(stack_b);
+	}
 	else
 		return (-1);
 	return (0);
@@ -71,7 +81,7 @@ int	operation_loop(char *operation, t_list **stack_a, t_list **stack_b)
 		check = make_operation(operation, stack_a, stack_b);
 		if (check == -1)
 		{
-			//free(operation);
+			free(operation);
 			ft_putendl_fd("Error", 2);
 			return (-1);
 		}
@@ -105,7 +115,7 @@ int	main(int ac, char **av)
 	if (check == -1)
 	{
 		free(flags);
-		free(operation);
+		//free(operation);
 		ft_lstclear(&stack_a);
 		ft_lstclear(&stack_b);
 		return (EXIT_FAILURE);
