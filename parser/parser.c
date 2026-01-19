@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/16 18:24:39 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:44:26 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static int	valid_args(char **buffer, t_flags *flags)
 	i = 0;
 	while (buffer[i])
 	{
-		j = 0;
-		if (!ft_isdigit(buffer[i][0]))
+		j = 1;
+		if (!ft_isdigit(buffer[i][0]) && !ft_isdigit(buffer[i][1]))
 		{
 			if (handle_flags(buffer[i], flags) == -1)
 				return (-1);
@@ -79,10 +79,10 @@ static t_list	*create_list(char **buffer)
 	number = 0;
 	while (buffer[i])
 	{
-		if (ft_isdigit(buffer[i][0]) == 1)
+		if (ft_isdigit(buffer[i][0]) || (buffer[i][0] == '-' && ft_isdigit(buffer[i][1])))
 		{
 			number = ft_atoi(buffer[i]);
-			if (number > INT_MAX || number < 0)
+			if (number > INT_MAX)
 				return (ft_lstclear(&stack_a), NULL);
 			if (!stack_a)
 				stack_a = ft_lstnew(number);
