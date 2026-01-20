@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 13:59:14 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:14:54 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "includes/bench.h"
 #include "includes/push_swap.h"
 
-void	checker(t_list **stack_a, t_list **stack_b)
+static void	checker(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*current;
 
@@ -63,11 +63,13 @@ static int	make_operation(char *operation, t_list **stack_a, t_list **stack_b)
 	return (-1);
 }
 
-int	operation_loop(char *operation, t_list **stack_a, t_list **stack_b)
+static int	operation_loop(t_list **stack_a, t_list **stack_b)
 {
 	int	check;
+	char	*operation;
 
 	check = 0;
+	operation = get_next_line(0);
 	while (operation)
 	{
 		check = make_operation(operation, stack_a, stack_b);
@@ -84,27 +86,28 @@ int	operation_loop(char *operation, t_list **stack_a, t_list **stack_b)
 
 int	main(int ac, char **av)
 {
-	char	*operation;
 	t_list	*stack_a;
 	t_list	*stack_b;
 	t_flags	*flags;
 	int		check;
 
-	if (ac == 1)
-		return (EXIT_SUCCESS);
 	stack_b = NULL;
 	flags = init_flags_struct();
+	if (!flags)
+		return(EXIT_FAILURE);
 	stack_a = input_parser(ac, av, flags);
 	if (!stack_a)
-		return (free(flags), ft_putendl_fd("Error", 2), EXIT_FAILURE);
-	operation = get_next_line(0);
-	check = operation_loop(operation, &stack_a, &stack_b);
+	{
+		ft_free_no_stack_a(flags);
+		return (EXIT_FAILURE);
+	}
+	check = operation_loop(&stack_a, &stack_b);
 	if (check == -1)
-		return (free(flags), ft_lstclear(&stack_a), ft_lstclear(&stack_b),
-			EXIT_FAILURE);
+	{
+		ft_free_stack_and_flags(flags, stack_a, stack_b);
+		return (EXIT_FAILURE);
+	}
 	checker(&stack_a, &stack_b);
-	free(flags);
-	ft_lstclear(&stack_a);
-	ft_lstclear(&stack_b);
+	ft_free_stack_and_flags(flags, stack_a, stack_b);
 	return (EXIT_SUCCESS);
 }

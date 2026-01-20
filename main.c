@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 14:02:29 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:16:54 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,24 @@ int	main(int ac, char *av[])
 	t_bench	op_total;
 	t_flags	*flags;
 
-	if (ac == 1)
-		return (EXIT_SUCCESS);
+	stack_b = NULL;
 	flags = init_flags_struct();
 	if (flags == NULL)
 		return (EXIT_FAILURE);
 	stack_a = input_parser(ac, av, flags);
 	if (!stack_a)
-		return (free(flags), ft_putendl_fd("Error", 2), EXIT_FAILURE);
+	{
+		ft_free_no_stack_a(flags);
+		return (EXIT_FAILURE);
+	}
 	if (check_list_sort(&stack_a) == 1)
-		return (free(flags), ft_lstclear(&stack_a), EXIT_SUCCESS);
-	stack_b = NULL;
+	{
+		ft_free_stack_and_flags(flags, stack_a, stack_b);
+		return (EXIT_SUCCESS);
+	}
 	get_indexs(&stack_a);
 	op_total = init_bench_struct();
 	do_algorithms(flags, &stack_a, &stack_b, &op_total);
-	ft_lstclear(&stack_a);
-	free(flags);
+	ft_free_stack_and_flags(flags, stack_a, stack_b);
 	return (EXIT_SUCCESS);
 }

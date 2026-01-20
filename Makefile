@@ -18,12 +18,12 @@ SRCFILES	:= parser/parser.c parser/ft_free_buffer.c \
 			   utils/itoa_binary.c utils/init_flags_struct.c \
 			   utils/choose_algo.c bench/bench_utils.c bench/bench.c \
 			   utils/handle_flags.c utils/check_list_sort.c \
-			   main.c parser/is_duplicate.c
+			   main.c parser/is_duplicate.c utils/ft_free.c \
 
 BONUS_SRCFILES := bonus/get_next_line_bonus.c bonus/get_next_line_utils_bonus.c \
 				  parser/parser.c parser/ft_free_buffer.c \
 				  bonus/operations_checker_bonus.c checker_bonus.c\
-				  utils/init_flags_struct.c \
+				  utils/init_flags_struct.c utils/ft_free.c \
 				  utils/handle_flags.c parser/is_duplicate.c bonus/operations_checker2_bonus.c \
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
