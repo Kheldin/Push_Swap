@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 15:53:21 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 18:11:25 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,41 @@
 #include "includes/push_swap.h"
 #include "libft/includes/libft.h"
 
+void mini_algo(t_list **stack_a, t_list **stack_b, t_bench *op_total)
+{
+	t_list *current;
+	t_list *last;
+	
+	(void)stack_b;
+	last = ft_lstlast(*stack_a);
+	current = *stack_a;
+	if (current->index > current->next->index)
+		swap(stack_a, 'a', op_total, 0);
+	current = *stack_a;
+	ft_printf("1 = %d\n", current->content);
+	ft_printf("2 = %d\n", current->next->content);
+	if (current->next->index > last->index)
+	{
+		rotate(stack_a, 'a', op_total, 0);
+		swap(stack_a, 'a', op_total, 0);
+		reverse_rotate(stack_a, 'a', op_total, 0);
+	}
+}
+
 static void	do_algorithms(t_flags *flags, t_list **stack_a, t_list **stack_b,
 		t_bench *op_total)
 {
 	float	disorder;
 	int		algo;
+	int size;
 
 	algo = 0;
 	disorder = get_disorder(stack_a);
-	if (flags->flag_int == -1 || flags->flag_int == 1000)
+	size = ft_lstsize(*stack_a);
+	// ft_printf("size = %d\n", size);
+	if (size == 3)
+		mini_algo(stack_a, stack_b, op_total);
+	else if (flags->flag_int == -1 || flags->flag_int == 1000)
 		algo = choose_algo(stack_a, stack_b, op_total, disorder);
 	else if (flags->flag_int == 1)
 		selection_sort(stack_a, stack_b, op_total);

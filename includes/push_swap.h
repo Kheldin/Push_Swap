@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 15:49:33 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 18:11:39 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int			is_duplicate(char **buffer, char *arg);
 
 // operation
 
-void		swap(t_list *first, char stack, t_bench *op_total, int is_rr);
-void		swap_ss(t_list *first_a, t_list *first_b, t_bench *op_total);
+void		swap(t_list **head, char stack, t_bench *op_total, int is_ss);
+void		swap_ss(t_list **head_a, t_list **stack_b, t_bench *op_total);
 void		rotate(t_list **node, char stack, t_bench *op_total, int is_rr);
 void		rotate_rr(t_list **node_a, t_list **node_b, t_bench *op_total);
 void		reverse_rotate(t_list **node, char stack, t_bench *op_total,
