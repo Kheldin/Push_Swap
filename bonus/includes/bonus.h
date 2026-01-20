@@ -6,14 +6,14 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:51:13 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 12:37:30 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:54:39 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BONUS_H
 # define BONUS_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
+#  define BUFFER_SIZE 1
 # endif
 # define FDS_MAX 1024
 # include "../../libft/includes/libft.h"

@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 12:39:04 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:56:34 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,20 +96,12 @@ int	main(int ac, char **av)
 	flags = init_flags_struct();
 	stack_a = input_parser(ac, av, flags);
 	if (!stack_a)
-	{
-		free(flags);
-		ft_putendl_fd("Error", 2);
-		return (EXIT_FAILURE);
-	}
+		return (free(flags), ft_putendl_fd("Error", 2), EXIT_FAILURE);
 	operation = get_next_line(0);
 	check = operation_loop(operation, &stack_a, &stack_b);
 	if (check == -1)
-	{
-		free(flags);
-		ft_lstclear(&stack_a);
-		ft_lstclear(&stack_b);
-		return (EXIT_FAILURE);
-	}
+		return (free(flags), ft_lstclear(&stack_a), ft_lstclear(&stack_b),
+		EXIT_FAILURE);
 	checker(&stack_a, &stack_b);
 	free(flags);
 	ft_lstclear(&stack_a);
