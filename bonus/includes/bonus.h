@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:51:13 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/16 19:20:18 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/20 12:37:30 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ void	rotate_checker(t_list **node);
 void	push_checker(t_list **first_a, t_list **first_b, char stack);
 void	swap_ss_checker(t_list **first_a, t_list **first_b);
 void	swap_checker(t_list **first);
+void	rotate_rr_checker(t_list **stack_a, t_list **stack_b);
+void	reverse_rotate_rrr_checker(t_list **stack_a, t_list **stack_b);
 
 #endif

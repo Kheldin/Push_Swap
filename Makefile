@@ -24,7 +24,7 @@ BONUS_SRCFILES := bonus/get_next_line_bonus.c bonus/get_next_line_utils_bonus.c 
 				  parser/parser.c parser/ft_free_buffer.c \
 				  bonus/operations_checker_bonus.c checker_bonus.c\
 				  utils/init_flags_struct.c \
-				  utils/handle_flags.c parser/is_duplicate.c \
+				  utils/handle_flags.c parser/is_duplicate.c bonus/operations_checker2_bonus.c \
 
 OBJS		:= $(addprefix $(BUILDDIR)/,$(SRCFILES:.c=.o))
 HEADERS		:= $(INCDIR)/push_swap.h

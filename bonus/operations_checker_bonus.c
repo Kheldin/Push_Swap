@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_checker_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:19:11 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/16 19:22:46 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/20 12:34:35 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,41 +33,6 @@ void	push_checker(t_list **first_a, t_list **first_b, char stack)
 		(*first_a) = (*first_a)->next;
 		ft_lstadd_front(first_b, temp);
 	}
-}
-
-void	rotate_checker(t_list **node)
-{
-	t_list	*last;
-	t_list	*first;
-
-	if ((*node) == NULL || (*node)->next == NULL)
-		return ;
-	first = (*node);
-	(*node) = first->next;
-	last = ft_lstlast(first);
-	last->next = first;
-	first->next = NULL;
-}
-
-void	reverse_rotate_checker(t_list **node)
-{
-	t_list	*last;
-	t_list	*first;
-	t_list	*penultimate;
-
-	if ((*node) == NULL || (*node)->next == NULL)
-		return ;
-	penultimate = (*node);
-	first = (*node);
-	last = (*node);
-	while (last->next)
-	{
-		penultimate = last;
-		last = last->next;
-	}
-	penultimate->next = NULL;
-	last->next = first;
-	(*node) = last;
 }
 
 void	swap_checker(t_list **first)

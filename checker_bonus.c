@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/17 16:36:34 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 12:39:04 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,36 +39,28 @@ void	checker(t_list **stack_a, t_list **stack_b)
 static int	make_operation(char *operation, t_list **stack_a, t_list **stack_b)
 {
 	if (ft_strncmp(operation, "pa\n", 3) == 0)
-		push_checker(stack_a, stack_b, 'a');
+		return (push_checker(stack_a, stack_b, 'a'), 0);
 	else if (ft_strncmp(operation, "pb\n", 3) == 0)
-		push_checker(stack_a, stack_b, 'b');
+		return (push_checker(stack_a, stack_b, 'b'), 0);
 	else if (ft_strncmp(operation, "ra\n", 3) == 0)
-		rotate_checker(stack_a);
+		return (rotate_checker(stack_a), 0);
 	else if (ft_strncmp(operation, "rb\n", 3) == 0)
-		rotate_checker(stack_b);
+		return (rotate_checker(stack_b), 0);
 	else if (ft_strncmp(operation, "rra\n", 4) == 0)
-		reverse_rotate_checker(stack_a);
+		return (reverse_rotate_checker(stack_a), 0);
 	else if (ft_strncmp(operation, "rrb\n", 4) == 0)
-		reverse_rotate_checker(stack_b);
+		return (reverse_rotate_checker(stack_b), 0);
 	else if (ft_strncmp(operation, "sa\n", 3) == 0)
-		swap_checker(stack_a);
+		return (swap_checker(stack_a), 0);
 	else if (ft_strncmp(operation, "sb\n", 3) == 0)
-		swap_checker(stack_b);
+		return (swap_checker(stack_b), 0);
 	else if (ft_strncmp(operation, "ss\n", 3) == 0)
-		swap_ss_checker(stack_a, stack_b);
+		return (swap_ss_checker(stack_a, stack_b), 0);
 	else if (ft_strncmp(operation, "rrr\n", 4) == 0)
-	{
-		reverse_rotate_checker(stack_a);
-		reverse_rotate_checker(stack_b);
-	}
+		return (reverse_rotate_rrr_checker(stack_a, stack_b), 0);
 	else if (ft_strncmp(operation, "rr\n", 3) == 0)
-	{
-		rotate_checker(stack_a);
-		rotate_checker(stack_b);
-	}
-	else
-		return (-1);
-	return (0);
+		return (rotate_rr_checker(stack_a, stack_b), 0);
+	return (-1);
 }
 
 int	operation_loop(char *operation, t_list **stack_a, t_list **stack_b)
@@ -111,7 +103,6 @@ int	main(int ac, char **av)
 	}
 	operation = get_next_line(0);
 	check = operation_loop(operation, &stack_a, &stack_b);
-	// ft_printf("check %d\n", check);
 	if (check == -1)
 	{
 		free(flags);
