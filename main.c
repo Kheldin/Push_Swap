@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 18:43:33 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/20 19:09:34 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,25 @@
 #include "includes/push_swap.h"
 #include "libft/includes/libft.h"
 
+void	push_mins(t_list **stack_a, t_list **stack_b, t_bench *op_total)
+{
+	while ((*stack_a)->index != 0)
+		rotate(stack_a, 'a', op_total, 0);
+	push(stack_a, stack_b, 'b', op_total);
+	while ((*stack_a)->index != 1)
+		rotate(stack_a, 'a', op_total, 0);
+	push(stack_a, stack_b, 'b', op_total);
+}
+
 void mini_algo(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 {
 	t_list *current;
 	t_list *last;
-	
-	(void)stack_b;
+	int		size;
+
+	size = ft_lstsize(*stack_a);
+	if (size == 5)
+		push_mins(stack_a, stack_b, op_total);
 	last = ft_lstlast(*stack_a);
 	current = *stack_a;
 	if ((*stack_a)->index > (*stack_a)->next->index)
@@ -30,6 +43,11 @@ void mini_algo(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 	reverse_rotate(stack_a, 'a', op_total, 0);
 	if ((*stack_a)->index > (*stack_a)->next->index)
 		swap(stack_a, 'a', op_total, 0);
+	if (*stack_b)
+	{
+		push(stack_a, stack_b, 'a', op_total);
+		push(stack_a, stack_b, 'a', op_total);
+	}	
 }
 
 static void	do_algorithms(t_flags *flags, t_list **stack_a, t_list **stack_b,
@@ -42,7 +60,7 @@ static void	do_algorithms(t_flags *flags, t_list **stack_a, t_list **stack_b,
 	algo = 0;
 	disorder = get_disorder(stack_a);
 	size = ft_lstsize(*stack_a);
-	if (size == 3)
+	if (size == 3 || size == 5)
 		mini_algo(stack_a, stack_b, op_total);
 	else if (flags->flag_int == -1 || flags->flag_int == 1000)
 		algo = choose_algo(stack_a, stack_b, op_total, disorder);
