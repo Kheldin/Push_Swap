@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:00:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 15:14:39 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:25:04 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
 
-void	ft_free_stack_and_flags(t_flags *flags, t_list *stack_a, t_list *stack_b)
+void	ft_free_stack_and_flags(t_flags *flags, t_list *stack_a,
+			t_list *stack_b)
 {
 	free(flags);
 	ft_lstclear(&stack_a);

@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 15:14:54 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:24:03 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int	make_operation(char *operation, t_list **stack_a, t_list **stack_b)
 
 static int	operation_loop(t_list **stack_a, t_list **stack_b)
 {
-	int	check;
+	int		check;
 	char	*operation;
 
 	check = 0;
@@ -94,7 +94,7 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	flags = init_flags_struct();
 	if (!flags)
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	stack_a = input_parser(ac, av, flags);
 	if (!stack_a)
 	{
