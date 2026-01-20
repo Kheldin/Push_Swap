@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:55:50 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 13:56:34 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:59:14 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	main(int ac, char **av)
 	check = operation_loop(operation, &stack_a, &stack_b);
 	if (check == -1)
 		return (free(flags), ft_lstclear(&stack_a), ft_lstclear(&stack_b),
-		EXIT_FAILURE);
+			EXIT_FAILURE);
 	checker(&stack_a, &stack_b);
 	free(flags);
 	ft_lstclear(&stack_a);

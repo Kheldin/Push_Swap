@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_list_sort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 18:10:28 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/16 18:14:18 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:58:49 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_list_sort(t_list **stack_a)
 	while (current->next)
 	{
 		if (current->content > current->next->content)
-			return -1;
+			return (-1);
 		current = current->next;
 	}
 	return (1);

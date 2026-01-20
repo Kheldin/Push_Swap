@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/19 14:44:26 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:57:57 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ static t_list	*create_list(char **buffer)
 	number = 0;
 	while (buffer[i])
 	{
-		if (ft_isdigit(buffer[i][0]) || (buffer[i][0] == '-' && ft_isdigit(buffer[i][1])))
+		if (ft_isdigit(buffer[i][0]) || (buffer[i][0] == '-'
+			&& ft_isdigit(buffer[i][1])))
 		{
 			number = ft_atoi(buffer[i]);
 			if (number > INT_MAX)

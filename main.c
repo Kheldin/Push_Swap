@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/19 14:43:35 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 14:02:29 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,9 @@ int	main(int ac, char *av[])
 		return (EXIT_FAILURE);
 	stack_a = input_parser(ac, av, flags);
 	if (!stack_a)
-	{
-		free(flags);
-		ft_putendl_fd("Error", 2);
-		return (EXIT_FAILURE);
-	}
+		return (free(flags), ft_putendl_fd("Error", 2), EXIT_FAILURE);
 	if (check_list_sort(&stack_a) == 1)
-	{
-		free(flags);
-		ft_lstclear(&stack_a);
-		return (EXIT_SUCCESS);		
-	}
+		return (free(flags), ft_lstclear(&stack_a), EXIT_SUCCESS);
 	stack_b = NULL;
 	get_indexs(&stack_a);
 	op_total = init_bench_struct();
