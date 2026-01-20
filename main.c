@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 15:16:54 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:53:21 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int ac, char *av[])
 	stack_a = input_parser(ac, av, flags);
 	if (!stack_a)
 	{
-		ft_free_no_stack_a(flags);
+		ft_free_no_stack_a(flags, ac);
 		return (EXIT_FAILURE);
 	}
 	if (check_list_sort(&stack_a) == 1)

@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:00:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 15:25:04 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:53:33 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	ft_free_stack_and_flags(t_flags *flags, t_list *stack_a,
 	ft_lstclear(&stack_b);
 }
 
-void	ft_free_no_stack_a(t_flags *flags)
+void	ft_free_no_stack_a(t_flags *flags, int ac)
 {
-	ft_putendl_fd("Error", 2);
+	if (ac != 1)
+		ft_putendl_fd("Error", 2);
 	free(flags);
 }

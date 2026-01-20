@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 12:33:24 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 13:57:57 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:44:35 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,8 @@ t_list	*input_parser(int ac, char **av, t_flags *flags)
 	char	**buffer;
 	int		nb_args;
 
+	if (ac == 1)
+		return (NULL);
 	stack_a = NULL;
 	nb_args = count_args(ac, av);
 	if (nb_args == -1)

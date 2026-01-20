@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 11:51:13 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 13:54:39 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:30:26 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int		ft_strlen_gnl(const char *s);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 int		ft_strchr_gnl(const char *s, int c);
 char	*ft_substr_gnl(char const *s, unsigned int start, size_t len);
-void	*ft_calloc(size_t nmemb, size_t size); // operations_checker
+void	*ft_calloc(size_t nmemb, size_t size);
 
-void	reverse_rotate_checker(t_list **node);
-void	rotate_checker(t_list **node);
-void	push_checker(t_list **first_a, t_list **first_b, char stack);
-void	swap_ss_checker(t_list **first_a, t_list **first_b);
-void	swap_checker(t_list **first);
-void	rotate_rr_checker(t_list **stack_a, t_list **stack_b);
-void	reverse_rotate_rrr_checker(t_list **stack_a, t_list **stack_b);
+int		reverse_rotate_checker(t_list **node);
+int		rotate_checker(t_list **node);
+int		push_checker(t_list **first_a, t_list **first_b, char stack);
+int		swap_ss_checker(t_list **first_a, t_list **first_b);
+int		swap_checker(t_list **first);
+int		rotate_rr_checker(t_list **stack_a, t_list **stack_b);
+int		reverse_rotate_rrr_checker(t_list **stack_a, t_list **stack_b);
 
 #endif

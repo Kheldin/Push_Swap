@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 15:24:33 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:49:33 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ int			check_list_sort(t_list **stack_a);
 
 void		ft_free_stack_and_flags(t_flags *flags, t_list *stack_a,
 				t_list *stack_b);
-void		ft_free_no_stack_a(t_flags *flags);
+void		ft_free_no_stack_a(t_flags *flags, int error);
 
 #endif
