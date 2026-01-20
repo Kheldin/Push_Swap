@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 15:55:15 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/20 18:19:20 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 19:11:49 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 void	swap(t_list **head, char stack, t_bench *op_total, int is_ss)
 {
-	t_list *first;
+	t_list	*first;
 	t_list	*second;
 	t_list	*third;
-	
+
 	if (*head == NULL || (*head)->next == NULL)
 		return ;
 	first = (*head);

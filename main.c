@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 19:09:34 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/20 19:12:02 by anrogard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	push_mins(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 	push(stack_a, stack_b, 'b', op_total);
 }
 
-void mini_algo(t_list **stack_a, t_list **stack_b, t_bench *op_total)
+void	mini_algo(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 {
-	t_list *current;
-	t_list *last;
+	t_list	*current;
+	t_list	*last;
 	int		size;
 
 	size = ft_lstsize(*stack_a);
@@ -47,7 +47,7 @@ void mini_algo(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 	{
 		push(stack_a, stack_b, 'a', op_total);
 		push(stack_a, stack_b, 'a', op_total);
-	}	
+	}
 }
 
 static void	do_algorithms(t_flags *flags, t_list **stack_a, t_list **stack_b,
@@ -55,7 +55,7 @@ static void	do_algorithms(t_flags *flags, t_list **stack_a, t_list **stack_b,
 {
 	float	disorder;
 	int		algo;
-	int size;
+	int		size;
 
 	algo = 0;
 	disorder = get_disorder(stack_a);
