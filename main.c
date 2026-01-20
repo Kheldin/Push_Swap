@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 18:11:25 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/20 18:18:44 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void mini_algo(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 	current = *stack_a;
 	ft_printf("1 = %d\n", current->content);
 	ft_printf("2 = %d\n", current->next->content);
+	ft_printf("3 = %d\n", current->next->next->content);
 	if (current->next->index > last->index)
 	{
 		rotate(stack_a, 'a', op_total, 0);
@@ -45,7 +46,6 @@ static void	do_algorithms(t_flags *flags, t_list **stack_a, t_list **stack_b,
 	algo = 0;
 	disorder = get_disorder(stack_a);
 	size = ft_lstsize(*stack_a);
-	// ft_printf("size = %d\n", size);
 	if (size == 3)
 		mini_algo(stack_a, stack_b, op_total);
 	else if (flags->flag_int == -1 || flags->flag_int == 1000)
