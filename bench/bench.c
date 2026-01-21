@@ -6,7 +6,7 @@
 /*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 23:36:15 by anrogard          #+#    #+#             */
-/*   Updated: 2026/01/17 12:57:14 by kacherch         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:32:06 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	print_bench(t_bench *op_total, float disorder, int flag_int, int algo)
 		ft_putendl_fd(str, 2);
 		free(str);
 	}
-	ft_putstr_fd("[bench] strategy: ", 2);
+	ft_putstr_fd("\n[bench] strategy: ", 2);
 	print_strategy(algo, flag_int);
 	ft_putstr_fd("[bench] total_ops: ", 2);
 	ft_putnbr_fd(tot, 2);
