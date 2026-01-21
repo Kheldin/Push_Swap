@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:58:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 19:12:02 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:19:39 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@
 
 void	push_mins(t_list **stack_a, t_list **stack_b, t_bench *op_total)
 {
-	while ((*stack_a)->index != 0)
-		rotate(stack_a, 'a', op_total, 0);
+	if (ft_lstlast(*stack_a)->index == 0)
+		reverse_rotate(stack_a, 'a', op_total, 0);
+	else
+	{
+		while ((*stack_a)->index != 0)
+			rotate(stack_a, 'a', op_total, 0);
+	}
 	push(stack_a, stack_b, 'b', op_total);
 	while ((*stack_a)->index != 1)
 		rotate(stack_a, 'a', op_total, 0);
