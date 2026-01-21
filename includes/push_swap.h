@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anrogard <anrogard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kacherch <kacherch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:08:39 by kacherch          #+#    #+#             */
-/*   Updated: 2026/01/20 18:11:39 by anrogard         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:25:54 by kacherch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int			choose_algo(t_list **stack_a, t_list **stack_b, t_bench *op_total,
 float		get_disorder(t_list **stack_a);
 t_flags		*init_flags_struct(void);
 void		get_indexs(t_list **stack_a);
-void		ft_print_stacks(t_list *stack_a, t_list *stack_b);
 int			itoa_binary(int n);
 void		final_push_selection(t_list **stack_a, t_list **stack_b,
 				t_bench *op_total);
